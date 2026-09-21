@@ -75,9 +75,21 @@ body{font-family:var(--f);color:var(--navy);background:var(--white)}
 
 /* ── SECTIONS BASE ── */
 section{position:relative;overflow:hidden}
-.bg-l{background:var(--bg)}
+.bg-l{
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
 .bg-w{background:var(--white)}
-.bg-d{background:var(--dark)}
+.bg-d{
+  background:var(--dark);
+  position: relative;
+}
+.bg-d::before {
+  content:''; position:absolute; inset:0;
+  background: url('https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2000&auto=format&fit=crop') center/cover;
+  opacity: 0.05; mix-blend-mode: overlay; pointer-events: none;
+}
 
 /* ── SECTION LABEL ── */
 .sec-lbl{
@@ -99,10 +111,14 @@ section{position:relative;overflow:hidden}
 .port-red{
   position:absolute;top:0;right:0;width:44%;height:55%;
   background:var(--red);clip-path:polygon(100% 0,0 0,100% 100%);
+  z-index: 2;
 }
 .port-gray{
-  position:absolute;top:0;right:0;width:56%;height:65%;
-  background:#C8C7C5;opacity:.35;clip-path:polygon(100% 0,0 0,100% 100%);
+  position:absolute;top:0;right:0;width:60%;height:75%;
+  background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop') center/cover;
+  clip-path:polygon(100% 0,0 0,100% 100%);
+  filter: grayscale(100%) opacity(0.25);
+  z-index: 1;
 }
 .hero-content{position:relative;z-index:1;max-width:640px}
 .hero-pre{
@@ -221,6 +237,25 @@ section{position:relative;overflow:hidden}
   border:1px solid var(--border);
 }
 
+/* ── HOVER EFFECTS ── */
+.step, .area-card, .proj-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step:hover, .area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(28,28,46,0.06);
+}
+.proj-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(28,28,46,0.08);
+}
+.proj-img-wrap img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.proj-card:hover .proj-img-wrap img {
+  transform: scale(1.05);
+}
+
 /* ── CIERRE ── */
 #cierre{
   padding:100px 120px;min-height:50vh;
@@ -334,22 +369,30 @@ section{position:relative;overflow:hidden}
     <h2 class="section-title">Cuatro territorios, un mismo enfoque.</h2>
     <div class="areas-grid">
       <div class="area-card">
-        <span class="area-icon">🧠</span>
+        <span class="area-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5A3 3 0 0 0 13.6 4.4H10.4a3 3 0 0 0-3.999 2.1"/></svg>
+        </span>
         <div class="area-title">Inteligencia operacional</div>
         <div class="area-body">Sistemas que convierten información dispersa en conocimiento accionable para managers y equipos, disponible en tiempo real y en lenguaje natural.</div>
       </div>
       <div class="area-card">
-        <span class="area-icon">📄</span>
+        <span class="area-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+        </span>
         <div class="area-title">Automatización documental</div>
         <div class="area-body">Generación, revisión y trazabilidad de documentos complejos a partir de reuniones, audio o datos estructurados, reduciendo trabajo manual y errores.</div>
       </div>
       <div class="area-card">
-        <span class="area-icon">⚙️</span>
+        <span class="area-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+        </span>
         <div class="area-title">Automatización de procesos</div>
         <div class="area-body">Flujos que reducen trabajo manual repetitivo y conectan herramientas internas, liberando tiempo de los equipos para tareas de mayor valor.</div>
       </div>
       <div class="area-card">
-        <span class="area-icon">💬</span>
+        <span class="area-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" x2="15" y1="10" y2="10"/><line x1="12" x2="12" y1="7" y2="13"/></svg>
+        </span>
         <div class="area-title">Agentes e IA aplicada</div>
         <div class="area-body">Asistentes conversacionales, pipelines RAG, transcripción, extracción de requisitos y soporte a la toma de decisiones mediante modelos de lenguaje.</div>
       </div>
@@ -364,6 +407,9 @@ section{position:relative;overflow:hidden}
 
       <!-- HER -->
       <div class="proj-card">
+        <div class="proj-img-wrap" style="margin: -40px -36px 32px -36px; height: 180px; overflow: hidden; border-radius: 12px 12px 0 0;">
+          <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2074&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+        </div>
         <div class="proj-badge"><span class="d"></span>En producción</div>
         <div class="proj-name">HER</div>
         <p class="proj-desc">Sistema de inteligencia operacional conversacional para el grupo AlmaWolf. Recoge información de la actividad de los equipos, la estructura y la convierte en conocimiento consultable mediante lenguaje natural.</p>
@@ -387,6 +433,9 @@ section{position:relative;overflow:hidden}
 
       <!-- COEXISTENCIA -->
       <div class="proj-card">
+        <div class="proj-img-wrap" style="margin: -40px -36px 32px -36px; height: 180px; overflow: hidden; border-radius: 12px 12px 0 0;">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+        </div>
         <div class="proj-badge"><span class="d"></span>En producción</div>
         <div class="proj-name">Coexistencia</div>
         <p class="proj-desc">Hub de integración que conecta los datos comerciales de Woztell con los sistemas de AlmaWolf: inteligencia operacional, CRM, calendarios y lo que venga después.</p>
@@ -410,6 +459,9 @@ section{position:relative;overflow:hidden}
 
       <!-- DERS / DERCAS -->
       <div class="proj-card">
+        <div class="proj-img-wrap" style="margin: -40px -36px 32px -36px; height: 180px; overflow: hidden; border-radius: 12px 12px 0 0;">
+          <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?q=80&w=2071&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+        </div>
         <div class="proj-badge soon"><span class="d"></span>En desarrollo</div>
         <div class="proj-name">DERS / DERCAS<br>Automation</div>
         <div class="proj-soon-pill">Próximamente</div>
