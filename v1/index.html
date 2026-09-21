@@ -388,19 +388,19 @@ section{position:relative;overflow:hidden}
       <!-- COEXISTENCIA -->
       <div class="proj-card">
         <div class="proj-badge"><span class="d"></span>En producción</div>
-        <div class="proj-name">Coexistencia<br>V1</div>
-        <p class="proj-desc">Extensión de HER que integra los resúmenes de conversaciones comerciales de WhatsApp (Woztell) en un RAG coexistente, consultable en lenguaje natural por el agente manager.</p>
+        <div class="proj-name">Coexistencia</div>
+        <p class="proj-desc">Hub de integración que conecta los datos comerciales de Woztell con los sistemas de AlmaWolf: inteligencia operacional, CRM, calendarios y lo que venga después.</p>
         <ul class="proj-pts">
-          <li>Ingesta asíncrona de resúmenes Woztell vía callbacks Celery.</li>
-          <li>RAG independiente con embeddings Gemini y búsqueda semántica.</li>
-          <li>Routing automático entre check-ins y conversaciones comerciales.</li>
+          <li>Woztell genera resúmenes de WhatsApp con Gemini — Coexistencia los distribuye.</li>
+          <li>V1 en producción: integración con HER, consulta en lenguaje natural.</li>
+          <li>Roadmap: CRM, calendarios y más sistemas del stack.</li>
         </ul>
         <div class="proj-impact">
-          <div class="proj-impact-lbl">Validado en producción</div>
+          <div class="proj-impact-lbl">V1 validada · Sep 2026</div>
           <ul>
-            <li>20 conversaciones reales ingresadas · 20/20 queries OK.</li>
-            <li>Piloto activo con Jorge Ortega (Woztell).</li>
-            <li>Servicio desplegado en Cloud Run desde sep 2026.</li>
+            <li>20 conversaciones reales ingresadas en producción.</li>
+            <li>20/20 queries OK en prueba de integración.</li>
+            <li>Arquitectura extensible — módulo a módulo.</li>
           </ul>
         </div>
         <div class="proj-cta">
