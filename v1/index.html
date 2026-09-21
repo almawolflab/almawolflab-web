@@ -24,6 +24,38 @@ html{scroll-behavior:smooth}
 }
 body{font-family:var(--f);color:var(--navy);background:var(--white)}
 
+/* ── GATE ── */
+#gate{
+  position:fixed;inset:0;
+  background:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.gate-box{
+  background:var(--navy);border-radius:16px;padding:52px 48px;
+  width:min(440px,90vw);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 64px rgba(0,0,0,.6);
+  text-align:center;
+}
+.gate-logo{margin-bottom:28px;display:flex;align-items:center;justify-content:center}
+.gate-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
+.gate-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:32px;line-height:1.55}
+.gate-input{
+  width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+  color:#fff;border-radius:8px;padding:13px 16px;font-family:var(--f);
+  font-size:14px;margin-bottom:12px;display:block;
+}
+.gate-input::placeholder{color:rgba(255,255,255,.3)}
+.gate-input:focus{outline:none;border-color:var(--red)}
+.gate-btn{
+  width:100%;background:var(--red);color:#fff;border:none;
+  border-radius:8px;padding:14px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--f);transition:filter .15s;
+}
+.gate-btn:hover{filter:brightness(1.1)}
+.gate-err{font-size:12px;color:#F87171;margin-top:10px;min-height:18px}
+
 /* ── NAV ── */
 .site-nav{
   position:sticky;top:0;z-index:100;
@@ -205,7 +237,21 @@ section{position:relative;overflow:hidden}
 </head>
 <body>
 
-<div id="content">
+<!-- ── GATE ── -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">
+      <img src="Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="34" style="display:block;filter:brightness(0) invert(1)">
+    </div>
+    <div class="gate-title">AlmaWolf Lab</div>
+    <div class="gate-sub">Área restringida.<br>Introduce la contraseña para acceder.</div>
+    <input class="gate-input" id="pwd" type="password" placeholder="Contraseña" autocomplete="current-password">
+    <button class="gate-btn" id="btn-enter">Acceder</button>
+    <div class="gate-err" id="pwd-err"></div>
+  </div>
+</div>
+
+<div id="content" style="display:none">
 
   <!-- NAV -->
   <nav class="site-nav">
@@ -375,6 +421,37 @@ section{position:relative;overflow:hidden}
 
 </div><!-- /content -->
 
+<script>
+(function(){
+  var PWD = '4lmAW0lf';
+  var SK  = 'aw_lab_auth';
+
+  function unlock(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
+  function check(){
+    var v = document.getElementById('pwd').value;
+    if(v === PWD){
+      sessionStorage.setItem(SK,'1');
+      unlock();
+    } else {
+      document.getElementById('pwd-err').textContent = 'Contraseña incorrecta.';
+      document.getElementById('pwd').value = '';
+      document.getElementById('pwd').focus();
+    }
+  }
+
+  if(sessionStorage.getItem(SK) === '1') unlock();
+
+  document.getElementById('btn-enter').addEventListener('click', check);
+  document.getElementById('pwd').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') check();
+    if(e.key !== 'Enter') document.getElementById('pwd-err').textContent = '';
+  });
+})();
+</script>
 <script>
 window.WEB_REVIEW_CONFIG = {
   projectName: 'almawolf-lab',
