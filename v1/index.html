@@ -163,7 +163,7 @@ section{position:relative;overflow:hidden}
 
 /* ── PROYECTOS ── */
 #proyectos{padding:100px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
 .proj-card{
   background:var(--bg);border-radius:12px;padding:40px 36px;
   border:1px solid var(--border);display:flex;flex-direction:column;
@@ -382,6 +382,29 @@ section{position:relative;overflow:hidden}
         </div>
         <div class="proj-cta">
           <a href="her/index.html" class="proj-btn">Ver proyecto HER →</a>
+        </div>
+      </div>
+
+      <!-- COEXISTENCIA -->
+      <div class="proj-card">
+        <div class="proj-badge"><span class="d"></span>En producción</div>
+        <div class="proj-name">Coexistencia<br>V1</div>
+        <p class="proj-desc">Extensión de HER que integra los resúmenes de conversaciones comerciales de WhatsApp (Woztell) en un RAG coexistente, consultable en lenguaje natural por el agente manager.</p>
+        <ul class="proj-pts">
+          <li>Ingesta asíncrona de resúmenes Woztell vía callbacks Celery.</li>
+          <li>RAG independiente con embeddings Gemini y búsqueda semántica.</li>
+          <li>Routing automático entre check-ins y conversaciones comerciales.</li>
+        </ul>
+        <div class="proj-impact">
+          <div class="proj-impact-lbl">Validado en producción</div>
+          <ul>
+            <li>20 conversaciones reales ingresadas · 20/20 queries OK.</li>
+            <li>Piloto activo con Jorge Ortega (Woztell).</li>
+            <li>Servicio desplegado en Cloud Run desde sep 2026.</li>
+          </ul>
+        </div>
+        <div class="proj-cta">
+          <a href="coexistencia/index.html" class="proj-btn">Ver proyecto Coexistencia →</a>
         </div>
       </div>
 
