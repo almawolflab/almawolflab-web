@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Proyecto HER — AlmaWolf Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --red:#C13B2F;
+  --navy:#1C1C2E;
+  --bg:#EDECEB;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --dark:#0F1119;
+  --border:#D5D4D2;
+  --f:'Inter',system-ui,sans-serif;
+}
+body{font-family:var(--f);color:var(--navy);background:var(--white)}
+
+/* ── GATE ── */
+#gate{
+  position:fixed;inset:0;background:var(--dark);
+  display:flex;align-items:center;justify-content:center;z-index:1000;
+}
+.gate-box{
+  background:var(--navy);border-radius:16px;padding:52px 48px;
+  width:min(440px,90vw);border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 64px rgba(0,0,0,.6);text-align:center;
+}
+.gate-logo{margin-bottom:28px;display:flex;align-items:center;justify-content:center}
+.gate-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
+.gate-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:32px;line-height:1.55}
+.gate-input{
+  width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+  color:#fff;border-radius:8px;padding:13px 16px;font-family:var(--f);
+  font-size:14px;margin-bottom:12px;display:block;
+}
+.gate-input::placeholder{color:rgba(255,255,255,.3)}
+.gate-input:focus{outline:none;border-color:var(--red)}
+.gate-btn{
+  width:100%;background:var(--red);color:#fff;border:none;
+  border-radius:8px;padding:14px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--f);transition:filter .15s;
+}
+.gate-btn:hover{filter:brightness(1.1)}
+.gate-err{font-size:12px;color:#F87171;margin-top:10px;min-height:18px}
+
+/* ── PROJECT HEADER ── */
+.proj-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:0 60px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.back-link{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--gray);text-decoration:none;
+  font-weight:500;transition:color .15s;letter-spacing:.01em;
+}
+.back-link:hover{color:var(--navy)}
+.back-link::before{content:'←';font-size:14px}
+.proj-header-title{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;color:var(--navy);
+}
+.proj-header-logo{display:flex;align-items:center}
+
+/* ── SECTIONS BASE ── */
+section{position:relative;overflow:hidden}
+.bg-l{background:var(--bg)}
+.bg-w{background:var(--white)}
+.bg-d{background:var(--dark)}
+
+/* ── SECTION LABEL ── */
+.sec-lbl{
+  display:flex;align-items:center;gap:9px;
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--red);margin-bottom:44px;
+}
+.sec-lbl .d{width:9px;height:9px;background:var(--red);transform:rotate(45deg);flex-shrink:0}
+.sec-lbl.plain{color:var(--gray);font-weight:500}
+.sec-lbl.plain .d{background:var(--gray)}
+
+/* ── PORTADA / HERO ── */
+#s-portada{
+  height:100vh;min-height:640px;background:var(--white);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 0 90px 80px;
+}
+.port-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.port-red{
+  position:absolute;top:0;right:0;width:46%;height:56%;
+  background:var(--red);clip-path:polygon(100% 0,0 0,100% 100%);
+}
+.port-gray{
+  position:absolute;top:0;right:0;width:58%;height:66%;
+  background:#C8C7C5;opacity:.35;clip-path:polygon(100% 0,0 0,100% 100%);
+}
+.port-content{position:relative;z-index:1}
+.wave{display:flex;align-items:center;gap:2.5px;height:38px;margin-bottom:18px}
+.wave span{display:block;width:3px;border-radius:2px;background:var(--red)}
+.port-title{font-size:clamp(48px,6.5vw,88px);font-weight:300;color:var(--navy);line-height:1.05;margin-bottom:12px}
+.port-sub{font-size:clamp(22px,2.4vw,32px);font-weight:300;color:var(--gray);margin-bottom:24px}
+
+/* ── ÍNDICE ── */
+#s-indice{padding:80px;min-height:60vh;display:flex;flex-direction:column;justify-content:center}
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 100px;margin-top:36px;max-width:800px}
+.idx-row{
+  display:flex;gap:18px;align-items:baseline;
+  padding:11px 0;border-bottom:1px solid var(--border);
+  font-size:clamp(13px,1.35vw,17px);color:var(--navy);
+  text-decoration:none;transition:color .15s;
+}
+.idx-row:hover{color:var(--red)}
+.idx-n{color:var(--red);font-size:clamp(12px,1.2vw,15px);font-weight:500;min-width:26px}
+.idx-d2{font-size:clamp(28px,3.5vw,52px);font-weight:400;line-height:1.2;color:var(--navy);margin-top:20px}
+
+/* ── OBJETIVO ── */
+#s-objetivo{padding:100px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.big{font-size:clamp(32px,4.4vw,68px);font-weight:300;line-height:1.1;max-width:55%}
+.big .accent{color:var(--red)}
+.body-p{font-size:clamp(13px,1.15vw,15.5px);line-height:1.65;color:var(--gray)}
+
+/* ── PROBLEMA ── */
+#s-problema{padding:72px 56px;min-height:90vh;display:flex;align-items:stretch}
+.s4l{width:36%;display:flex;flex-direction:column;justify-content:center;padding-right:36px;padding-top:12px}
+.s4r{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px}
+.prob-title{font-size:clamp(22px,2.8vw,40px);font-weight:400;line-height:1.15;color:var(--navy);margin-bottom:10px}
+.prob-sub{font-size:clamp(13px,1.15vw,15px);color:var(--gray);line-height:1.6;margin-bottom:20px}
+.dl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.dl li{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--navy);line-height:1.45}
+.dl li::before{content:'';display:block;width:7px;height:7px;min-width:7px;background:var(--red);transform:rotate(45deg);margin-top:4px}
+.prow{
+  display:grid;grid-template-columns:1fr 28px 1fr;
+  align-items:center;background:var(--white);
+  border-radius:7px;border:1px solid var(--border);overflow:hidden;
+}
+.prow .pp{padding:8px 16px;font-size:13px;color:var(--navy)}
+.prow .pp-col{display:flex;flex-direction:column}
+.prow .pp-col .pp{padding-bottom:2px}
+.prow .pp-desc{padding:0 16px 8px;font-size:10px;color:#6B7280;line-height:1.3}
+.prow .pa{color:var(--red);font-size:14px;text-align:center}
+.prow .ps{padding:8px 16px}
+.prow .ps-lbl{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:1px}
+.prow .ps-txt{font-size:13px;color:var(--navy);font-weight:500}
+.prow .ps-desc{font-size:10px;color:#6B7280;margin-top:3px;line-height:1.3}
+
+/* ── ARQUITECTURA ── */
+#s-arquitectura{padding:60px 72px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.arch-h{font-size:clamp(20px,2.6vw,36px);font-weight:700;color:var(--navy);margin-bottom:8px}
+.arch-sub{font-size:13px;color:var(--gray);max-width:680px;line-height:1.5;margin-bottom:40px}
+.arch-wrap{display:flex;align-items:center;justify-content:center;gap:0;padding:8px 0 20px;flex-wrap:wrap;gap:8px 0}
+.a-actor{display:flex;flex-direction:column;align-items:center;gap:6px}
+.a-icon{font-size:24px}
+.a-lbl{font-size:10px;color:var(--gray);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.a-box{
+  background:var(--dark);color:#fff;border-radius:8px;
+  padding:18px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:120px;
+}
+.a-box .a-ico{font-size:18px}
+.a-box .a-ttl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-align:center;line-height:1.3}
+.a-db{display:flex;flex-direction:column;align-items:center;gap:6px}
+.a-db-lbl{font-size:10px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase}
+.a-arr{display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px}
+.a-arr-ln{width:52px;height:1.5px;background:var(--navy);position:relative}
+.a-arr-ln::after{content:'▶';position:absolute;right:-8px;top:-6.5px;font-size:9px;color:var(--navy)}
+.a-arr-ln.r{background:var(--red)}
+.a-arr-ln.r::after{color:var(--red)}
+.a-arr-lbl{font-size:10px;color:var(--gray);white-space:nowrap}
+.a-arr-lbl.r{color:var(--red)}
+.arch-legend{display:flex;justify-content:center;gap:48px;padding-top:12px}
+.al-item{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--gray);font-style:italic}
+.al-d{width:8px;height:8px;transform:rotate(45deg);flex-shrink:0}
+.al-d.dk{background:var(--dark)}
+.al-d.rd{background:var(--red)}
+
+/* ── FASES (transcripciones) ── */
+#s-fase1,#s-fase2{padding:72px 56px;min-height:80vh;display:flex;align-items:stretch}
+.fase-l{width:40%;display:flex;flex-direction:column;justify-content:center;padding-right:44px}
+.fase-r{flex:1;display:flex;flex-direction:column;justify-content:center}
+.fase-title{font-size:clamp(22px,2.8vw,40px);font-weight:400;line-height:1.15;color:var(--navy);margin-bottom:16px}
+.q-sup{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:14px}
+.tr-line{display:flex;gap:10px;margin-bottom:5px;align-items:baseline}
+.tr-who{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;min-width:58px;flex-shrink:0;padding-top:2px}
+.tr-who.ag{color:var(--red)}.tr-who.us{color:var(--gray)}
+.tr-text{font-size:11.5px;color:var(--navy);line-height:1.45;font-style:italic}
+.audio-note{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  background:var(--white);border-radius:6px;padding:10px 14px;
+  border:1px solid var(--border);font-size:12px;color:var(--gray);
+}
+
+/* ── ESTADÍSTICAS ── */
+#s-experimento,#s-piloto{padding:48px 60px;min-height:90vh;display:flex;flex-direction:column;justify-content:center}
+.exp-lbl{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.exp-h{font-size:clamp(22px,3vw,42px);font-weight:700;color:var(--navy);margin-top:4px;margin-bottom:20px}
+.stat-banner{
+  background:var(--dark);border-radius:10px;
+  padding:24px 36px;margin-bottom:16px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
+}
+.stat-n{font-size:clamp(36px,4.8vw,68px);font-weight:800;line-height:1;color:var(--red)}
+.stat-n.mono{font-variant-numeric:tabular-nums}
+.sb-sub{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:5px;line-height:1.45}
+.sb-sub strong{color:#fff}
+.rg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.rc{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:14px 18px}
+.rc-h{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.rc-ck{width:17px;height:17px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;flex-shrink:0}
+.rc-t{font-size:12px;color:var(--navy);line-height:1.3}
+.rc-t .arr{color:var(--red);font-weight:600}
+.rc-b{font-size:11px;color:var(--gray);line-height:1.5}
+.rc-b strong{color:var(--navy)}
+
+/* ── CORREGIDO ── */
+#s-corregido{padding:64px 60px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.corr-h{font-size:clamp(22px,2.8vw,38px);font-weight:400;line-height:1.2;color:var(--navy);margin-bottom:28px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cpair{display:grid;grid-template-columns:1fr 1fr;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.cpair.solo{grid-column:1 / -1;width:50%}
+.cb,.ca{background:var(--white);padding:14px 16px}
+.ca{border-left:1px solid var(--border)}
+.clbl{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:5px}
+.clbl.a{color:var(--red)}
+.ctxt{font-size:12px;color:var(--navy);line-height:1.45}
+.ctxt strong{font-weight:600}
+
+/* ── RIESGOS ── */
+#s-riesgos{padding:64px 60px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.rh{font-size:clamp(22px,2.8vw,38px);font-weight:400;color:var(--navy);margin-bottom:28px;text-align:center}
+.risg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rpair{display:grid;grid-template-columns:1fr 1fr;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.rc2,.rm{background:var(--white);padding:14px 16px}
+.rm{border-left:1px solid var(--border)}
+.rlbl{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:5px}
+.rlbl.m{color:var(--gray)}
+.rtxt{font-size:13px;color:var(--navy);line-height:1.4}
+
+/* ── APRENDIZAJES ── */
+#s-aprendizajes{padding:100px 80px;min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.pend-lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:20px}
+.pend-h{font-size:clamp(28px,3.5vw,50px);font-weight:300;line-height:1.2;color:var(--navy);margin-bottom:24px}
+.pend-body{font-size:clamp(13px,1.15vw,15.5px);color:var(--gray);line-height:1.65;max-width:560px;margin-bottom:28px}
+
+/* ── SIGUIENTES FASES ── */
+#s-siguientes{padding:64px 60px;min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.ng{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:28px}
+.nc{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:26px 22px;display:flex;flex-direction:column}
+.nc-d{width:22px;height:22px;background:var(--red);transform:rotate(45deg);margin-bottom:18px}
+.nc-n{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:5px}
+.nc-t{font-size:19px;color:var(--navy);font-weight:400;margin-bottom:10px}
+.nc-desc{font-size:13px;color:var(--gray);line-height:1.55;margin-top:auto}
+
+/* ── EQUIPO ── */
+#s-equipo{padding:100px 80px;min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.equipo-h{font-size:clamp(28px,3.5vw,50px);font-weight:300;color:var(--navy);margin-bottom:32px}
+.equipo-cards{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.team-card{
+  background:var(--white);border:1px solid var(--border);border-radius:12px;
+  padding:24px 20px;width:188px;text-align:center;
+}
+.team-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:0 auto 14px}
+.team-photo-ph{width:96px;height:96px;border-radius:50%;background:var(--border);display:block;margin:0 auto 14px}
+.team-name{font-size:14px;font-weight:600;color:var(--navy)}
+.team-role{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-top:5px}
+.team-role.gray{color:var(--gray)}
+
+/* ── QR ── */
+#s-qr{
+  background:var(--white);padding:80px 56px;
+  display:flex;flex-direction:column;align-items:center;position:relative;
+}
+.qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
+.qr-h{font-size:clamp(20px,2.6vw,34px);font-weight:600;color:var(--navy);margin-bottom:8px}
+.qr-sub{font-size:clamp(13px,1.2vw,16px);color:var(--gray);margin-bottom:32px}
+.qr-sub span{color:var(--red);font-weight:500}
+.qr-cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.qr-card{
+  background:var(--white);border:1px solid var(--border);border-radius:12px;
+  padding:18px;width:175px;text-align:center;
+}
+.qr-img{width:130px;height:130px;margin:0 auto 12px;background:#f4f4f4;border-radius:4px;overflow:hidden}
+.qr-img img{width:100%;height:100%;object-fit:contain;border-radius:4px}
+.qr-name{font-size:15px;font-weight:600;color:var(--navy)}
+.qr-role{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.qr-link{display:inline-block;margin-top:10px;font-size:11px;color:var(--red);text-decoration:none;font-weight:500}
+.qr-link:hover{text-decoration:underline}
+
+/* ── CIERRE ── */
+#s-cierre{
+  background:var(--white);padding:0 0 88px 80px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:70vh;position:relative;overflow:hidden;
+}
+.cierre-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cierre-red{
+  position:absolute;top:0;left:0;width:36%;height:44%;
+  background:var(--red);clip-path:polygon(0 0,100% 0,0 100%);
+}
+.cierre-gray{
+  position:absolute;top:0;left:0;width:44%;height:52%;
+  background:#C8C7C5;opacity:.45;clip-path:polygon(0 0,100% 0,0 100%);
+}
+.cierre-content{position:relative;z-index:1}
+.cierre-title{font-size:clamp(40px,5.5vw,72px);font-weight:300;color:var(--navy);line-height:1.07;margin-bottom:12px}
+.cierre-sub{font-size:clamp(18px,2vw,26px);font-weight:300;color:var(--gray);margin-bottom:24px}
+</style>
+</head>
+<body>
+
+<!-- ── GATE ── -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">
+      <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="34" style="display:block;filter:brightness(0) invert(1)">
+    </div>
+    <div class="gate-title">Proyecto HER</div>
+    <div class="gate-sub">Área restringida.<br>Introduce la contraseña para acceder.</div>
+    <input class="gate-input" id="pwd" type="password" placeholder="Contraseña" autocomplete="current-password">
+    <button class="gate-btn" id="btn-enter">Acceder</button>
+    <div class="gate-err" id="pwd-err"></div>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div id="content" style="display:none">
+
+  <!-- HEADER DE PROYECTO -->
+  <header class="proj-header">
+    <a href="../index.html" class="back-link">AlmaWolf Lab</a>
+    <div class="proj-header-title">Proyecto HER · V5</div>
+    <div class="proj-header-logo">
+      <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="32" style="display:block">
+    </div>
+  </header>
+
+  <!-- ── S1 PORTADA ── -->
+  <section id="s-portada">
+    <div class="port-bg">
+      <div class="port-gray"></div>
+      <div class="port-red"></div>
+    </div>
+    <div class="port-content">
+      <div class="wave">
+        <span style="height:14px"></span><span style="height:22px"></span><span style="height:30px"></span>
+        <span style="height:20px"></span><span style="height:34px"></span><span style="height:26px"></span>
+        <span style="height:38px"></span><span style="height:22px"></span><span style="height:32px"></span>
+        <span style="height:16px"></span><span style="height:28px"></span><span style="height:20px"></span>
+        <span style="height:24px"></span><span style="height:14px"></span><span style="height:18px"></span>
+      </div>
+      <div class="port-title">Proyecto Her</div>
+      <div class="port-sub">Realidad percibida accionable</div>
+      <svg width="110" height="22" viewBox="0 0 110 22" fill="none">
+        <polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/>
+        <polygon points="8,5 14,11 8,17" fill="#7a1f16"/>
+        <text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── S2 ÍNDICE ── -->
+  <section id="s-indice" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Índice</div>
+    <div class="idx-d2">Lo que vamos a ver.</div>
+    <div class="idx-grid" style="margin-top:36px">
+      <div>
+        <a href="#s-objetivo" class="idx-row"><span class="idx-n">01</span><span>El objetivo</span></a>
+        <a href="#s-problema" class="idx-row"><span class="idx-n">02</span><span>Problemas y soluciones</span></a>
+        <a href="#s-arquitectura" class="idx-row"><span class="idx-n">03</span><span>Arquitectura</span></a>
+        <a href="#s-fase1" class="idx-row"><span class="idx-n">04</span><span>Agente de check-in</span></a>
+        <a href="#s-fase2" class="idx-row"><span class="idx-n">05</span><span>Agente de consulta</span></a>
+        <a href="#s-experimento" class="idx-row"><span class="idx-n">06</span><span>Resultados del experimento</span></a>
+        <a href="#s-piloto" class="idx-row"><span class="idx-n">07</span><span>Resultados del piloto</span></a>
+      </div>
+      <div>
+        <a href="#s-corregido" class="idx-row"><span class="idx-n">08</span><span>Lo que hemos corregido</span></a>
+        <a href="#s-riesgos" class="idx-row"><span class="idx-n">09</span><span>Riesgos y mitigaciones</span></a>
+        <a href="#s-aprendizajes" class="idx-row"><span class="idx-n">10</span><span>Aprendizajes</span></a>
+        <a href="#s-siguientes" class="idx-row"><span class="idx-n">11</span><span>Siguientes fases</span></a>
+        <a href="#s-equipo" class="idx-row"><span class="idx-n">12</span><span>Equipo</span></a>
+        <a href="#s-qr" class="idx-row"><span class="idx-n">13</span><span>Prueba los agentes</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S3 OBJETIVO ── -->
+  <section id="s-objetivo" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>El objetivo</div>
+    <div class="big">
+      <span class="accent">Visibilizar y compartir</span><br>
+      el conocimiento de negocio<br>de cada individuo<br>de la organización.
+    </div>
+    <p class="body-p" style="max-width:380px;margin-top:24px">
+      Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.
+    </p>
+  </section>
+
+  <!-- ── S4 EL PROBLEMA ── -->
+  <section id="s-problema" class="bg-l">
+    <div class="s4l">
+      <div class="sec-lbl"><span class="d"></span>El problema</div>
+      <div class="prob-title">El conocimiento se evapora cada día.</div>
+      <p class="prob-sub">Muere en reuniones, llamadas y correos…</p>
+      <ul class="dl">
+        <li>El manager no ve qué hizo su equipo sin preguntar.</li>
+        <li>El CEO no tiene visión de grupo sin una reunión.</li>
+        <li>Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
+      </ul>
+    </div>
+    <div class="s4r">
+      <div class="prow"><div class="pp-col"><div class="pp">Relatividad</div><div class="pp-desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Priorización</div><div class="ps-desc">El agente pondera cada tema por importancia real, no por quién más habla</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Intermitente</div><div class="pp-desc">La disponibilidad y el ánimo del interlocutor varían según el momento</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Determinismo</div><div class="ps-desc">Misma calidad de respuesta siempre, sin variación por estado de ánimo</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Idiomas</div><div class="pp-desc">Las barreras lingüísticas limitan la profundidad de la conversación</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Multiidioma nativo</div><div class="ps-desc">Conversa en el idioma de cada persona sin perder matices</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Husos horarios</div><div class="pp-desc">La diferencia horaria impide la sincronía entre equipos distribuidos</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Asincronía</div><div class="ps-desc">Disponible en cualquier momento, sin necesidad de coincidir en horario</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Cultura</div><div class="pp-desc">Los códigos culturales distintos generan malentendidos y fricción</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Tropicalización</div><div class="ps-desc">Adapta el tono y las referencias al contexto cultural de cada persona</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Pérdida de conocimiento</div><div class="pp-desc">El conocimiento tácito no queda registrado cuando las personas se van</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Transferencia estructurada</div><div class="ps-desc">Convierte el conocimiento conversacional en datos estructurados y reutilizables</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── S5 ARQUITECTURA ── -->
+  <section id="s-arquitectura" class="bg-l">
+    <div class="sec-lbl plain"><span class="d"></span>Arquitectura</div>
+    <div class="arch-h">Dos tipos de agentes, una misma base de conocimiento.</div>
+    <div class="arch-sub">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
+    <div class="arch-wrap">
+      <div class="a-actor">
+        <div class="a-icon">👤</div>
+        <div class="a-lbl">User</div>
+      </div>
+      <div class="a-arr" style="flex-direction:column-reverse">
+        <div class="a-arr-lbl">Reports</div>
+        <div class="a-arr-ln"></div>
+      </div>
+      <div class="a-box">
+        <div class="a-ico">💬</div>
+        <div class="a-ttl">Check-in<br>Agent</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
+        <div class="a-arr-lbl">Summary</div>
+        <div style="width:52px;border-top:1.5px dashed var(--gray)"></div>
+      </div>
+      <div class="a-arr">
+        <div class="a-arr-lbl">Writes</div>
+        <div class="a-arr-ln"></div>
+      </div>
+      <div class="a-db">
+        <div class="a-db-lbl">RAG</div>
+        <svg width="52" height="44" viewBox="0 0 52 44">
+          <ellipse cx="26" cy="9" rx="22" ry="7" fill="#1C1C2E" opacity=".15" stroke="#1C1C2E" stroke-width="1.5"/>
+          <rect x="4" y="9" width="44" height="26" fill="#1C1C2E" opacity=".08"/>
+          <ellipse cx="26" cy="35" rx="22" ry="7" fill="none" stroke="#1C1C2E" stroke-width="1.5"/>
+          <line x1="4" y1="9" x2="4" y2="35" stroke="#1C1C2E" stroke-width="1.5"/>
+          <line x1="48" y1="9" x2="48" y2="35" stroke="#1C1C2E" stroke-width="1.5"/>
+          <ellipse cx="26" cy="9" rx="22" ry="7" fill="none" stroke="#1C1C2E" stroke-width="1.5"/>
+        </svg>
+        <div class="a-db-lbl">Knowledge base</div>
+      </div>
+      <div class="a-arr">
+        <div class="a-arr-lbl r">Reads</div>
+        <div class="a-arr-ln r"></div>
+      </div>
+      <div class="a-box">
+        <div class="a-ico">🔍</div>
+        <div class="a-ttl">Query<br>Agent</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
+        <div class="a-arr-lbl" style="color:var(--red)">Answer</div>
+        <div style="width:52px;border-top:1.5px dashed var(--red)"></div>
+        <div class="a-arr-lbl">Asks</div>
+      </div>
+      <div class="a-actor">
+        <div class="a-icon">👤</div>
+        <div class="a-lbl">Manager</div>
+      </div>
+    </div>
+    <div class="arch-legend">
+      <div class="al-item"><div class="al-d dk"></div><span>Check-in · capturar y guardar</span></div>
+      <div class="al-item"><div class="al-d rd"></div><span>Consulta · recuperar y responder</span></div>
+    </div>
+  </section>
+
+  <!-- ── S6 FASE 1 — CHECK-IN ── -->
+  <section id="s-fase1" class="bg-l">
+    <div class="fase-l">
+      <div class="sec-lbl"><span class="d"></span>Fase 1</div>
+      <div class="fase-title">Una persona, un agente dedicado.</div>
+      <p class="body-p" style="margin-top:0">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
+    </div>
+    <div class="fase-r">
+      <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
+      <div class="audio-note">🎵 <span>Audio · Agente María con Eliana · 26 ago 2026</span></div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Remoto, de cinco a once y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">La página de tokens y el BSUID; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de Max Prices, actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">No.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Te cuento las novedades del grupo de ayer: se finaliza el DPA para un cliente dental. Se avanzó en la integración de Google Contact. Se priorizó una oferta de upgrades. El rediseño de Max Price incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Gracias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Gracias. Que te vaya bien mañana.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S7 FASE 2 — CONSULTA ── -->
+  <section id="s-fase2" class="bg-l">
+    <div class="fase-l">
+      <div class="sec-lbl"><span class="d"></span>Fase 2 — Compartir</div>
+      <div class="fase-title">El conocimiento se comparte.</div>
+      <p class="body-p" style="margin-top:0">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
+    </div>
+    <div class="fase-r">
+      <div class="q-sup">Transcripción real · Piloto septiembre 2026</div>
+      <div class="audio-note">🎵 <span>Audio · Manager Eduardo · 4 sep 2026</span></div>
+      <div style="margin-top:4px;display:flex;flex-direction:column;gap:5px">
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">¿Qué ha hecho [Empleada A] esta semana?</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Esta semana ha estado bastante activa: trabajó en los catálogos de Meta, gestionó unas facturas y revisó tickets con [una compañera]. Tuvo una reunión sobre el VSDAY y los nuevos precios en Meta. El 31 de agosto estuvo en la oficina de 8:30 a 17:30.</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">¿Hubo algún problema con el proyecto inbox for all?</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Sí, ha habido algunos. El 22 de julio, [Compañera 1] reportó errores al enviar mensajes con el inbox. El 13 de julio, [Empleada A] lo dejó pendiente de una validación. Y el 27 de agosto, [Compañera 2] encontró un error al instalar la nueva versión para un cliente, que se resolvió borrando la caché.</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">No, está bien.</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Perfecto. Si necesitas algo más, aquí ando.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S8 EXPERIMENTO JUNIO ── -->
+  <section id="s-experimento" class="bg-l">
+    <div class="sec-lbl plain"><span class="d"></span>Experimento &nbsp;·&nbsp; Junio 2026</div>
+    <div class="exp-h">De dónde partimos — experimento de junio.</div>
+    <div class="stat-banner">
+      <div><div class="stat-n">100%</div><div class="sb-sub"><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
+      <div><div class="stat-n">95%</div><div class="sb-sub"><strong>consultas correctas</strong> — en lenguaje natural</div></div>
+      <div><div class="stat-n mono">3,1 min</div><div class="sb-sub"><strong>de media por check-in</strong> — 131 en junio</div></div>
+    </div>
+    <div class="rg">
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Relatividad <span class="arr">→</span> Priorización</div></div><div class="rc-b">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Intermitente <span class="arr">→</span> Determinismo</div></div><div class="rc-b">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Idiomas <span class="arr">→</span> Multiidioma nativo</div></div><div class="rc-b">Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Agendas <span class="arr">→</span> Asincronía</div></div><div class="rc-b"><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Cultura <span class="arr">→</span> Tropicalización</div></div><div class="rc-b">Voz y modismos nativos por región — <strong>argentino, español y más variedades</strong>, adaptado a su contexto cultural.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div><div class="rc-b">Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div></div>
+    </div>
+  </section>
+
+  <!-- ── S9 PILOTO AGOSTO ── -->
+  <section id="s-piloto" class="bg-l">
+    <div class="sec-lbl plain"><span class="d"></span>Piloto &nbsp;·&nbsp; Agosto 2026</div>
+    <div class="exp-h">Nueve personas, un mes de check-ins.</div>
+    <div class="stat-banner">
+      <div><div class="stat-n">96%</div><div class="sb-sub"><strong>de cumplimiento</strong> — en las nueve personas</div></div>
+      <div><div class="stat-n">82%</div><div class="sb-sub"><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
+      <div><div class="stat-n mono">169</div><div class="sb-sub"><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
+    </div>
+    <div class="rg">
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Adopción <span class="arr">→</span> Un hábito diario</div></div><div class="rc-b">Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Constancia <span class="arr">→</span> Semana a semana</div></div><div class="rc-b">El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Fiabilidad <span class="arr">→</span> Un servicio que aguanta</div></div><div class="rc-b">De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Resumen <span class="arr">→</span> Se escucha entero</div></div><div class="rc-b">El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Precisión <span class="arr">→</span> Respuestas sólidas</div></div><div class="rc-b">Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Siempre responde <span class="arr">→</span> No rellena los huecos</div></div><div class="rc-b">Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div></div>
+    </div>
+  </section>
+
+  <!-- ── S10 LO QUE HEMOS CORREGIDO ── -->
+  <section id="s-corregido" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Lo que hemos corregido</div>
+    <div class="corr-h">Del experimento al piloto: cinco cosas corregidas.</div>
+    <div class="cg">
+      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera y deja terminar a cada persona.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Se usa el huso de cada manager.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera mientras piensas.</div></div></div>
+      <div class="cpair solo"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Ahora llegan a su final natural.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── S11 RIESGOS ── -->
+  <section id="s-riesgos" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Riesgos y mitigaciones</div>
+    <div class="rh">Cada riesgo tiene su mitigación por diseño.</div>
+    <div class="risg">
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Fatiga de check-in</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Breve, asíncrona y en su idioma.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Privacidad y datos</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Datos en la UE y consentimiento.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Respuestas incorrectas</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Respuestas siempre trazables.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Parecer un formulario</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Una conversación real, no un cuestionario leído en voz alta.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Atados a un proveedor</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Usabilidad</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Llamados y notificaciones por parte del agente.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── S APRENDIZAJES ── -->
+  <section id="s-aprendizajes" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Aprendizajes</div>
+    <div class="pend-lbl">Pendiente · AW-153</div>
+    <div class="pend-h">Lo que sí o sí hay que hacer.</div>
+    <p class="pend-body">Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?</p>
+    <ul class="dl" style="max-width:500px">
+      <li>¿Qué ha funcionado mejor de lo esperado?</li>
+      <li>¿Qué hay que cambiar antes de escalar?</li>
+      <li>¿Qué descartamos definitivamente?</li>
+    </ul>
+  </section>
+
+  <!-- ── S12 SIGUIENTES FASES ── -->
+  <section id="s-siguientes" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Lo que viene</div>
+    <div style="font-size:clamp(22px,2.8vw,38px);font-weight:400;color:var(--navy);margin-bottom:0">Tres frentes a la vez.</div>
+    <div class="ng">
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">01 · Idiomas</div>
+        <div class="nc-t">Más idiomas</div>
+        <div class="nc-desc">Más idiomas, más variantes culturales y un agente para cada una.</div>
+      </div>
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">02 · Integraciones</div>
+        <div class="nc-t">Más fuentes</div>
+        <div class="nc-desc">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
+      </div>
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">03 · Acceso</div>
+        <div class="nc-t">Permisos</div>
+        <div class="nc-desc">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S EQUIPO ── -->
+  <section id="s-equipo" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Equipo</div>
+    <div class="equipo-h">Quién hay detrás.</div>
+    <div class="equipo-cards">
+      <div class="team-card">
+        <img class="team-photo" src="../assets/gabriel.jpg" alt="Gabriel Hernán Noguera" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="team-photo-ph" style="display:none"></div>
+        <div class="team-name">Gabriel Hernán Noguera</div>
+        <div class="team-role">Responsable</div>
+      </div>
+      <div class="team-card" style="opacity:.45">
+        <div class="team-photo-ph"></div>
+        <div class="team-name">Eduardo Marchuet</div>
+        <div class="team-role gray">Programme Manager</div>
+      </div>
+      <div class="team-card" style="opacity:.45">
+        <div class="team-photo-ph"></div>
+        <div class="team-name">Jose Perez</div>
+        <div class="team-role gray">Executive Sponsor</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--gray);margin-top:20px">Fotos de Eduardo Marchuet y Jose Perez pendientes · AW-153</p>
+  </section>
+
+  <!-- ── S13 QR ── -->
+  <section id="s-qr">
+    <div class="qr-bg">
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        <polygon points="0,400 0,170 160,400" fill="#C13B2F"/>
+        <polygon points="0,400 0,220 200,400" fill="#C8C7C5" opacity=".4"/>
+      </svg>
+    </div>
+    <div style="position:relative;z-index:1;text-align:center">
+      <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);margin-bottom:8px">Pruébalo</div>
+      <div class="qr-h">Prueba los agentes tú mismo.</div>
+      <div class="qr-sub">Habla con <span>Her</span> — apunta con la cámara y empieza.</div>
+      <div class="qr-cards">
+        <div class="qr-card">
+          <div class="qr-img"><img src="../assets/qr-burton.png" alt="QR Burton"></div>
+          <div class="qr-name">Burton</div>
+          <div class="qr-role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=a6c01ba8-990c-45c6-9c09-48ff7e6f0d91" target="_blank" rel="noopener">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="../assets/qr-pedro.png" alt="QR Pedro"></div>
+          <div class="qr-name">Pedro</div>
+          <div class="qr-role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=d4b413b6-7375-497c-9bf5-618bf23396da" target="_blank" rel="noopener">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="../assets/qr-edu.png" alt="QR Edu"></div>
+          <div class="qr-name">Edu</div>
+          <div class="qr-role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=3eb4c17b-75cc-46ec-bf0b-c4e9678dd8ea" target="_blank" rel="noopener">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="../assets/qr-jose.png" alt="QR Jose"></div>
+          <div class="qr-name">Jose</div>
+          <div class="qr-role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=df1a8034-2912-48dd-b6da-5a40006169d4" target="_blank" rel="noopener">Link al agente →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CIERRE ── -->
+  <section id="s-cierre">
+    <div class="cierre-bg">
+      <div class="cierre-gray"></div>
+      <div class="cierre-red"></div>
+    </div>
+    <div class="cierre-content">
+      <div class="cierre-title">Proyecto Her</div>
+      <div class="cierre-sub">Realidad percibida accionable</div>
+      <a href="../" style="font-size:13px;color:var(--gray);text-decoration:none;font-weight:500;transition:color .15s">← Volver a AlmaWolf Lab</a>
+    </div>
+  </section>
+
+</div><!-- /content -->
+
+<!-- ── SCRIPTS ── -->
+<script>
+(function(){
+  var PWD = '4lmAW0lf';
+  var SK  = 'aw_her_auth';
+
+  function unlock(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
+  function check(){
+    var v = document.getElementById('pwd').value;
+    if(v === PWD){
+      sessionStorage.setItem(SK,'1');
+      unlock();
+    } else {
+      document.getElementById('pwd-err').textContent = 'Contraseña incorrecta.';
+      document.getElementById('pwd').value = '';
+      document.getElementById('pwd').focus();
+    }
+  }
+
+  if(sessionStorage.getItem(SK) === '1') unlock();
+
+  document.getElementById('btn-enter').addEventListener('click', check);
+  document.getElementById('pwd').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') check();
+    if(e.key !== 'Enter') document.getElementById('pwd-err').textContent = '';
+  });
+})();
+</script>
+<script>
+window.WEB_REVIEW_CONFIG = {
+  projectName: 'her-vertical',
+  webhookUrl:  'https://script.google.com/macros/s/AKfycbwGmCZuXhhiIouB6WdBPIkzJzDc285nZU1WpjMD97XREULjVtYdig4VHFmfdjSSFaN8/exec',
+  brandColor:  '#C13B2F'
+};
+</script>
+<script src="../web-review-mode.js"></script>
+</body>
+</html>
