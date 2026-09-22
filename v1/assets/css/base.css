@@ -1,0 +1,100 @@
+/* ── TOKENS & RESET ── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --red:#C13B2F;
+  --navy:#1C1C2E;
+  --bg:#EDECEB;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --dark:#0F1119;
+  --border:#D5D4D2;
+  --f:'Inter',system-ui,sans-serif;
+}
+body{font-family:var(--f);color:var(--navy);background:var(--white)}
+
+/* ── SECTION BASE ── */
+section{position:relative;overflow:hidden}
+.bg-l{background:var(--bg)}
+.bg-w{background:var(--white)}
+.bg-d{background:var(--dark)}
+
+/* ── DIAMOND ACCENT ── */
+.d{
+  display:block;width:8px;height:8px;
+  background:currentColor;transform:rotate(45deg);flex-shrink:0;
+}
+
+/* ── SECTION LABEL ── */
+.sec-lbl{
+  display:flex;align-items:center;gap:12px;
+  font-size:10.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);margin-bottom:52px;
+}
+/* Diamond morphs into a horizontal line inside sec-lbl */
+.sec-lbl .d{
+  width:28px;height:1.5px;transform:none;
+  background:currentColor;border-radius:1px;
+}
+.sec-lbl.plain{color:var(--gray)}
+
+/* ── PROJECT HEADER (her & coexistencia) ── */
+.proj-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:0 60px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.back-link{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--gray);text-decoration:none;
+  font-weight:500;transition:color .15s;letter-spacing:.01em;
+}
+.back-link::before{content:'←';font-size:14px}
+.back-link:hover{color:var(--navy)}
+.proj-header-title{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;color:var(--navy);
+}
+.proj-header-logo{display:flex;align-items:center}
+
+/* ── LAYOUT UTILITIES ── */
+.two-col{display:grid;grid-template-columns:2fr 3fr;gap:80px;align-items:start}
+.col-h{font-size:clamp(28px,3.5vw,50px);font-weight:300;line-height:1.2;color:var(--navy)}
+.col-body{font-size:clamp(14px,1.15vw,16px);color:var(--gray);line-height:1.75}
+.col-body p+p{margin-top:16px}
+
+/* ── BUTTONS ── */
+.btn-primary{
+  background:var(--red);color:#fff;border:none;border-radius:8px;
+  padding:14px 28px;font-size:14px;font-weight:600;cursor:pointer;
+  font-family:var(--f);text-decoration:none;transition:filter .15s;
+  display:inline-block;
+}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-secondary{
+  font-size:14px;color:var(--navy);text-decoration:none;font-weight:500;
+  transition:color .15s;
+}
+.btn-secondary:hover{color:var(--red)}
+
+/* ── CIERRE BODY (dark bg sections) ── */
+.cierre-body{
+  font-size:clamp(18px,2.5vw,32px);font-weight:300;
+  color:rgba(255,255,255,.72);line-height:1.55;max-width:720px;
+  margin-bottom:44px;
+}
+.cierre-body strong{color:#fff;font-weight:400}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .55s ease,transform .55s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
