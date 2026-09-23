@@ -77,7 +77,7 @@
 }
 
 /* ── PROJECT CARDS ── */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start}
 .proj-card{
   background:var(--bg);border-radius:12px;padding:40px 36px;
   border:1px solid var(--border);border-left:3px solid transparent;
@@ -122,7 +122,6 @@
 .proj-pts.gray li::before{background:rgba(107,114,128,.5)}
 .proj-impact{
   background:var(--dark);border-radius:8px;padding:18px 22px;margin-bottom:28px;
-  margin-top:auto;
 }
 .proj-impact-lbl{
   font-size:9px;letter-spacing:.16em;text-transform:uppercase;
