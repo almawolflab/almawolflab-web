@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>DERS / DERCAS Automation — AlmaWolf Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/dercas.css">
+</head>
+<body>
+<div id="content">
+
+  <!-- HEADER -->
+  <header class="proj-header">
+    <a href="../index.html" class="back-link">AlmaWolf Lab</a>
+    <div class="proj-header-title">DERS / DERCAS Automation</div>
+    <div class="proj-header-logo">
+      <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="32" style="display:block">
+    </div>
+  </header>
+
+  <!-- ── S1 PORTADA ── -->
+  <section id="s-portada">
+    <div class="port-bg">
+      <div class="port-gray"></div>
+      <div class="port-red"></div>
+    </div>
+    <div class="port-content">
+      <div class="chain-visual">
+        <div class="chain-step done">🎙 Grabación</div>
+        <div class="chain-arr">→</div>
+        <div class="chain-step done">📄 DERS</div>
+        <div class="chain-arr">→</div>
+        <div class="chain-step pilot">📋 DERCAS</div>
+        <div class="chain-arr">→</div>
+        <div class="chain-step">⚙️ CRM</div>
+      </div>
+      <div class="port-super"><span class="d"></span>AlmaWolf Lab · Automatización de consultoría</div>
+      <div class="port-title">DERS/DERCAS<br>Automation</div>
+      <div class="port-sub">De la grabación al documento en minutos.</div>
+    </div>
+  </section>
+
+  <!-- ── S2 ÍNDICE ── -->
+  <section id="s-indice" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Índice</div>
+    <div class="idx-d2 reveal">Ocho secciones.</div>
+    <div class="idx-grid reveal">
+      <a href="#s-objetivo" class="idx-row"><span class="idx-n">01</span>Objetivo</a>
+      <a href="#s-resultados" class="idx-row"><span class="idx-n">05</span>Resultados</a>
+      <a href="#s-arquitectura" class="idx-row"><span class="idx-n">02</span>Arquitectura</a>
+      <a href="#s-aprendizajes" class="idx-row"><span class="idx-n">06</span>Aprendizajes</a>
+      <a href="#s-ders" class="idx-row"><span class="idx-n">03</span>Módulo DERS</a>
+      <a href="#s-siguientes" class="idx-row"><span class="idx-n">07</span>Siguientes fases</a>
+      <a href="#s-dercas" class="idx-row"><span class="idx-n">04</span>Módulo DERCAS</a>
+      <a href="#s-cierre" class="idx-row"><span class="idx-n">08</span>Cierre</a>
+    </div>
+  </section>
+
+  <!-- ── S3 OBJETIVO ── -->
+  <section id="s-objetivo" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>El objetivo</div>
+    <div class="big reveal">El consultor graba y dicta. El sistema <span class="accent">documenta y configura</span>.</div>
+    <div class="two-col reveal">
+      <div>
+        <h2 class="col-h">De la reunión al CRM sin pasos manuales.</h2>
+      </div>
+      <div class="col-body">
+        <p>Cada proyecto de consultoría genera dos documentos críticos: el DERS (Documento de Especificación de Requerimientos del Sistema) y el DERCAS (Documento de Especificación de Requerimientos del CRM y Automatizaciones del Sistema).</p>
+        <p>Hasta ahora, ambos se redactaban manualmente después de cada reunión con cliente. DERS/DERCAS Automation convierte las grabaciones en borradores estructurados listos para revisión, y envía la configuración al CRM vía API.</p>
+        <p>El ciclo completo: grabaciones subidas a WorkDrive → DERS generado con Gemini → consultor dicta el DERCAS → configuración implementada en Zoho CRM.</p>
+      </div>
+    </div>
+    <div class="obj-metrics reveal">
+      <div class="obj-metric">
+        <div class="obj-metric-n">~10h → 2-3h</div>
+        <div class="obj-metric-lbl">Tiempo de generación del DERS por proyecto (de redacción manual a borrador automático revisado)</div>
+      </div>
+      <div class="obj-metric">
+        <div class="obj-metric-n">~$0.16</div>
+        <div class="obj-metric-lbl">Coste de generación por DERCAS completo vía Gemini Flash</div>
+      </div>
+      <div class="obj-metric">
+        <div class="obj-metric-n">18–22h<br>liberadas</div>
+        <div class="obj-metric-lbl">Estimación de horas manuales liberadas por proyecto de consultoría completo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S4 ARQUITECTURA ── -->
+  <section id="s-arquitectura" class="bg-w">
+    <div class="sec-lbl"><span class="d"></span>Arquitectura</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" class="reveal">
+      Tres módulos encadenados.<br>Cada uno autónomo.
+    </div>
+    <div class="mod-grid reveal">
+
+      <div class="mod-card">
+        <span class="mod-tag live">En producción</span>
+        <div class="mod-title">DERS</div>
+        <div class="mod-desc">Detecta nuevas grabaciones en WorkDrive, transcribe con Gemini Flash en paralelo, extrae requerimientos con trazabilidad reunión + minuto, e inyecta boilerplate GDPR y formación. Genera PDF en 3 pasadas.</div>
+        <div class="mod-tech">Gemini Flash · WorkDrive · Catalyst · PDF</div>
+      </div>
+
+      <div class="mod-card">
+        <span class="mod-tag pilot">Piloto</span>
+        <div class="mod-title">DERCAS</div>
+        <div class="mod-desc">El consultor dicta la solución en audio. El sistema empareja con el DERS generado, aplica RAG sobre DERCAS anteriores y el catálogo Zoho, y genera el documento estructurado por requerimiento con criterios de viabilidad.</div>
+        <div class="mod-tech">Gemini Flash · RAG · WorkDrive · Catalyst</div>
+      </div>
+
+      <div class="mod-card">
+        <span class="mod-tag research">Investigación</span>
+        <div class="mod-title">Parametrización CRM</div>
+        <div class="mod-desc">Envío directo de la configuración del DERCAS al CRM vía Zoho REST v8. Requiere aprobación humana antes de cada escritura. Reemplaza la integración Zoho MCP descartada por limitaciones técnicas.</div>
+        <div class="mod-tech">Zoho REST v8 · Sandbox · Aprobación humana</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S5 MÓDULO DERS ── -->
+  <section id="s-ders" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Módulo DERS</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" class="reveal">
+      De las grabaciones al borrador en minutos.
+    </div>
+    <div class="steps-v reveal">
+
+      <div class="step-v">
+        <div class="step-v-n">01</div>
+        <div>
+          <div class="step-v-h">Disparo automático</div>
+          <div class="step-v-body">El consultor sube las grabaciones a <code style="font-size:12px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">WorkDrive/&lt;Cliente&gt;/</code>. Un cron detecta los archivos nuevos y lanza el pipeline sin intervención manual. La alerta puede configurarse por consultor para evitar solapamientos.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">02</div>
+        <div>
+          <div class="step-v-h">Transcripción y extracción</div>
+          <div class="step-v-body">Gemini Flash transcribe todas las grabaciones en paralelo. El sistema extrae requerimientos con trazabilidad completa: reunión de origen + minuto exacto. El proceso se ejecuta en 3 pasadas para mejorar cobertura y detectar requerimientos implícitos.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">03</div>
+        <div>
+          <div class="step-v-h">Plantilla estructurada</div>
+          <div class="step-v-body">El boilerplate estándar del proyecto (cláusulas GDPR, módulos de formación, plan de migración) se inyecta automáticamente sin escritura manual. La plantilla se actualiza desde WorkDrive para reflejar siempre el formato vigente 2026.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">04</div>
+        <div>
+          <div class="step-v-h">Entrega y corrección incremental</div>
+          <div class="step-v-body">El DERS se genera como PDF en <code style="font-size:12px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">DERS/&lt;Cliente&gt;/</code> y se notifica por email. El consultor puede solicitar correcciones por voz: el sistema actualiza solo las secciones afectadas sin re-generar el documento completo.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S6 MÓDULO DERCAS ── -->
+  <section id="s-dercas" class="bg-w">
+    <div class="sec-lbl"><span class="d"></span>Módulo DERCAS</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" class="reveal">
+      El consultor dicta la solución.<br>El sistema la estructura.
+    </div>
+    <div class="steps-v reveal">
+
+      <div class="step-v">
+        <div class="step-v-n">01</div>
+        <div>
+          <div class="step-v-h">Dictado de voz</div>
+          <div class="step-v-body">El consultor graba su análisis y propuesta de configuración en audio y lo sube a <code style="font-size:12px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">DERCAS/&lt;Cliente&gt;/</code>. Sin formularios, sin interfaces adicionales: solo la grabación.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">02</div>
+        <div>
+          <div class="step-v-h">Emparejamiento con DERS</div>
+          <div class="step-v-body">El sistema carga el DERS generado del mismo cliente y aplica RAG sobre DERCAS anteriores y el catálogo de módulos Zoho. El catálogo actúa como referencia de estilo y nomenclatura, no como fuente de verdad de la solución.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">03</div>
+        <div>
+          <div class="step-v-h">Generación estructurada</div>
+          <div class="step-v-body">Por cada requerimiento del DERS, el sistema genera: análisis de viabilidad, criterios de implementación y configuración propuesta. Los requerimientos no cubiertos por el dictado quedan marcados como <code style="font-size:12px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">[PENDIENTE]</code> para revisión manual.</div>
+        </div>
+      </div>
+
+      <div class="step-v">
+        <div class="step-v-n">04</div>
+        <div>
+          <div class="step-v-h">Entrega y revisión</div>
+          <div class="step-v-body">El DERCAS se deposita en <code style="font-size:12px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">DERS/&lt;Cliente&gt;/</code> junto al DERS y se notifica por email. El consultor revisa y aprueba antes de enviarlo al cliente. El sistema no entrega nada al cliente de forma autónoma.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S7 RESULTADOS ── -->
+  <section id="s-resultados" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Resultados · Septiembre 2026</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2;margin-bottom:0" class="reveal">
+      Dos casos piloto. Dos módulos validados.
+    </div>
+    <div class="res-grid reveal">
+
+      <!-- DERS · Jaque Legal -->
+      <div>
+        <div class="res-case-lbl">DERS · Caso piloto</div>
+        <div class="res-case-h">Jaque Legal</div>
+        <div class="stat-banner">
+          <div>
+            <div class="stat-n">3</div>
+            <div class="sb-sub">reuniones con cliente procesadas</div>
+          </div>
+          <div>
+            <div class="stat-n">~5h</div>
+            <div class="sb-sub">de audio transcrito y analizado</div>
+          </div>
+          <div>
+            <div class="stat-n">11</div>
+            <div class="sb-sub">secciones del DERS generadas</div>
+          </div>
+        </div>
+        <ul class="res-check">
+          <li>Transcripción en paralelo sin errores de solapamiento</li>
+          <li>Trazabilidad reunión + minuto en todos los requerimientos</li>
+          <li>Boilerplate GDPR y formación inyectado correctamente</li>
+          <li>PDF entregado sin intervención manual adicional</li>
+        </ul>
+        <div class="res-impact">6–7 horas de redacción manual → 2–3 horas de revisión y ajuste del borrador.</div>
+      </div>
+
+      <!-- DERCAS · TuFisio -->
+      <div>
+        <div class="res-case-lbl">DERCAS · Caso piloto</div>
+        <div class="res-case-h">TuFisio</div>
+        <div class="stat-banner">
+          <div>
+            <div class="stat-n">~$0.16</div>
+            <div class="sb-sub">coste total de generación Gemini</div>
+          </div>
+          <div>
+            <div class="stat-n">0</div>
+            <div class="sb-sub">servicios nuevos necesarios</div>
+          </div>
+          <div>
+            <div class="stat-n">100%</div>
+            <div class="sb-sub">generado sin intervención humana</div>
+          </div>
+        </div>
+        <ul class="res-check">
+          <li>DERCAS completo generado desde dictado de voz</li>
+          <li>Emparejamiento correcto con requerimientos del DERS</li>
+          <li>Viabilidad y criterios por requerimiento presentes</li>
+          <li>Formato consistente con DERCAS de proyectos anteriores</li>
+        </ul>
+        <div class="res-impact">Validado el 16 de septiembre 2026. Primera entrega sin intervención consultora en la generación.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S8 APRENDIZAJES ── -->
+  <section id="s-aprendizajes" class="bg-w">
+    <div class="sec-lbl"><span class="d"></span>Aprendizajes</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" class="reveal">
+      Lo que cambiamos y lo que descartamos.
+    </div>
+    <div class="learn-grid reveal">
+
+      <div class="learn-card">
+        <div class="learn-lbl">Lo que funcionó</div>
+        <div class="learn-items">
+          <div class="learn-item">Pipeline sin intervención de principio a fin: el consultor solo sube archivos y revisa el resultado.</div>
+          <div class="learn-item">Trazabilidad reunión + minuto: los requerimientos son auditables y localizables en las grabaciones originales.</div>
+          <div class="learn-item">3 pasadas de extracción: mejora cobertura y captura requerimientos implícitos que una sola pasada pierde.</div>
+          <div class="learn-item">RAG sobre catálogo Zoho como referencia de nomenclatura: el DERCAS habla el mismo idioma que el CRM.</div>
+        </div>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-lbl">Lo que cambió</div>
+        <div class="learn-items">
+          <div class="learn-item">Alerta hardcodeada → alerta configurable por owner en WorkDrive. Evita solapamientos entre consultores en el mismo cliente.</div>
+          <div class="learn-item">Formato de entrega PDF → plantilla Word 2026 editable. El consultor puede marcar y corregir sin herramientas adicionales.</div>
+          <div class="learn-item">Cron global → cron por consultor. Mejor aislamiento y trazabilidad por responsable.</div>
+        </div>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-lbl">Lo que descartamos</div>
+        <div class="learn-items">
+          <div class="learn-item">Zoho MCP descartado: bug en el passthrough, coste token elevado y escritura al CRM bloqueada. Reemplazado por REST v8 directo.</div>
+          <div class="learn-item">Escritura autónoma al CRM sin aprobación: cualquier configuración requiere revisión y aprobación humana antes de ejecutarse.</div>
+          <div class="learn-item">Re-generación total en correcciones: las correcciones son incrementales sobre secciones específicas, no re-generación completa.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S9 SIGUIENTES FASES ── -->
+  <section id="s-siguientes" class="bg-l">
+    <div class="sec-lbl"><span class="d"></span>Siguientes fases</div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:560px;line-height:1.2" class="reveal">
+      Cuatro frentes simultáneos.
+    </div>
+    <div class="ng reveal">
+
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">Operaciones</div>
+        <div class="nc-t">Escalado operativo</div>
+        <div class="nc-desc">Alerta configurable por consultor en WorkDrive. Notificaciones a Zoho Cliq para visibilidad del equipo. Índice de DERS en Data Store para consulta histórica entre proyectos.</div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">Infraestructura</div>
+        <div class="nc-t">Catalyst Production</div>
+        <div class="nc-desc">Despliegue del sistema en Catalyst Production con cuenta de equipo compartida. Decisión de billing pendiente: freemium vs. cuenta corporativa según volumen de proyectos mensuales.</div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">Experiencia consultor</div>
+        <div class="nc-t">Revisor por voz</div>
+        <div class="nc-desc">DERS entregado en Word editable para marcado de correcciones. Correcciones dictadas por voz procesadas de forma incremental. Ciclo de revisión en sandbox antes de entrega al cliente.</div>
+      </div>
+
+      <div class="nc">
+        <div class="nc-d"></div>
+        <div class="nc-n">CRM</div>
+        <div class="nc-t">Parametrización Zoho</div>
+        <div class="nc-desc">Implementación del DERCAS directamente en Zoho CRM vía REST v8. Sandbox para validación antes de producción. Aprobación humana obligatoria en cada escritura al CRM.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── S10 CIERRE ── -->
+  <section id="s-cierre">
+    <div class="cierre-title reveal">DERS/DERCAS<br>Automation</div>
+    <div class="cierre-sub reveal">Suelta las grabaciones.<br>El documento aparece solo.</div>
+    <a href="../index.html" class="back-link reveal">← Volver a AlmaWolf Lab</a>
+  </section>
+
+</div>
+
+<script src="../assets/js/animations.js"></script>
+<script>
+window.WEB_REVIEW_CONFIG = {
+  projectName: 'dercas',
+  webhookUrl:  'https://script.google.com/macros/s/AKfycbwGmCZuXhhiIouB6WdBPIkzJzDc285nZU1WpjMD97XREULjVtYdig4VHFmfdjSSFaN8/exec',
+  brandColor:  '#C13B2F'
+};
+</script>
+<script src="../web-review-mode.js"></script>
+</body>
+</html>
