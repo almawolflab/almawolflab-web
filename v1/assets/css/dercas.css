@@ -174,15 +174,11 @@
 .nc-t{font-size:19px;color:var(--navy);font-weight:400;margin-bottom:10px}
 .nc-desc{font-size:13px;color:var(--gray);line-height:1.55;margin-top:auto}
 
+/* ── QUÉ ES ── */
+#s-que-es{padding:90px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+
 /* ── CIERRE ── */
 #s-cierre{
-  background:var(--bg);padding:100px 80px;
-  display:flex;flex-direction:column;justify-content:center;min-height:50vh;
-}
-.cierre-title{
-  font-size:clamp(40px,5.5vw,72px);font-weight:300;color:var(--navy);
-  line-height:1.07;margin-bottom:12px;
-}
-.cierre-sub{
-  font-size:clamp(18px,2vw,26px);font-weight:300;color:var(--gray);margin-bottom:24px;
+  background:var(--dark);padding:80px;min-height:30vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
 }
