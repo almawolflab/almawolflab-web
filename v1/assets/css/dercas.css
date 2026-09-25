@@ -175,7 +175,7 @@
 .nc-desc{font-size:13px;color:var(--gray);line-height:1.55;margin-top:auto}
 
 /* ── QUÉ ES ── */
-#s-que-es{padding:90px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+#s-que-es{padding:90px 80px 100px;display:flex;flex-direction:column;gap:52px}
 
 /* ── DIAGRAMA ── */
 #s-diagrama{padding:60px 80px 80px;background:var(--white)}

@@ -32,7 +32,7 @@
 .port-sub{font-size:clamp(16px,1.8vw,22px);font-weight:300;color:var(--gray);max-width:580px;line-height:1.45}
 
 /* ── QUÉ ES ── */
-#s-que-es{padding:90px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+#s-que-es{padding:90px 80px 100px;display:flex;flex-direction:column;gap:52px}
 .col-h{font-size:clamp(26px,3.2vw,46px);font-weight:300;line-height:1.2;color:var(--navy)}
 
 /* ── INTEGRACIONES ── */
