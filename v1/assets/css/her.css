@@ -174,27 +174,6 @@
 .team-role{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-top:5px}
 .team-role.gray{color:var(--gray)}
 
-/* ── QR ── */
-#s-qr{
-  background:var(--white);padding:80px 56px;
-  display:flex;flex-direction:column;align-items:center;position:relative;
-}
-.qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
-.qr-h{font-size:clamp(20px,2.6vw,34px);font-weight:600;color:var(--navy);margin-bottom:8px}
-.qr-sub{font-size:clamp(13px,1.2vw,16px);color:var(--gray);margin-bottom:32px}
-.qr-sub span{color:var(--red);font-weight:500}
-.qr-cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.qr-card{
-  background:var(--white);border:1px solid var(--border);border-radius:12px;
-  padding:18px;width:175px;text-align:center;
-}
-.qr-img{width:130px;height:130px;margin:0 auto 12px;background:#f4f4f4;border-radius:4px;overflow:hidden}
-.qr-img img{width:100%;height:100%;object-fit:contain;border-radius:4px}
-.qr-name{font-size:15px;font-weight:600;color:var(--navy)}
-.qr-role{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:4px}
-.qr-link{display:inline-block;margin-top:10px;font-size:11px;color:var(--red);text-decoration:none;font-weight:500}
-.qr-link:hover{text-decoration:underline}
-
 /* ── ROADMAP ── */
 #s-siguientes{padding:100px 80px;min-height:60vh;display:flex;flex-direction:column;justify-content:center}
 .ng{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
