@@ -121,6 +121,7 @@
 .sb-sub{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:5px;line-height:1.45}
 .sb-sub strong{color:#fff}
 .rg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+#s-aprendizajes .rg{grid-template-columns:1fr 1fr}
 .rc{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:14px 18px}
 .rc-h{display:flex;align-items:center;gap:7px;margin-bottom:6px}
 .rc-ck{width:17px;height:17px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;flex-shrink:0}
