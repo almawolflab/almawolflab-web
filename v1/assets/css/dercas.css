@@ -177,8 +177,9 @@
 /* ── QUÉ ES ── */
 #s-que-es{padding:90px 80px 100px;display:flex;flex-direction:column;gap:52px}
 
-/* ── DIAGRAMA ── */
+/* ── DIAGRAMAS E IMÁGENES ── */
 #s-diagrama{padding:60px 80px 80px;background:var(--white)}
+#s-guia{padding:60px 80px 80px}
 .diagrama-img{width:100%;border-radius:12px;border:1px solid var(--border);display:block;box-shadow:0 4px 24px rgba(0,0,0,.08)}
 
 /* ── CIERRE ── */
