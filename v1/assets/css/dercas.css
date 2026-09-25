@@ -177,6 +177,10 @@
 /* ── QUÉ ES ── */
 #s-que-es{padding:90px 80px;min-height:80vh;display:flex;flex-direction:column;justify-content:center}
 
+/* ── DIAGRAMA ── */
+#s-diagrama{padding:60px 80px 80px;background:var(--white)}
+.diagrama-img{width:100%;border-radius:12px;border:1px solid var(--border);display:block;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+
 /* ── CIERRE ── */
 #s-cierre{
   background:var(--dark);padding:80px;min-height:30vh;
