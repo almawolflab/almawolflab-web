@@ -195,6 +195,15 @@
 .qr-link{display:inline-block;margin-top:10px;font-size:11px;color:var(--red);text-decoration:none;font-weight:500}
 .qr-link:hover{text-decoration:underline}
 
+/* ── ROADMAP ── */
+#s-siguientes{padding:100px 80px;min-height:60vh;display:flex;flex-direction:column;justify-content:center}
+.ng{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.nc{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:28px 24px;display:flex;flex-direction:column}
+.nc-d{width:22px;height:22px;background:var(--red);transform:rotate(45deg);margin-bottom:18px}
+.nc-n{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
+.nc-t{font-size:19px;color:var(--navy);font-weight:400;margin-bottom:10px}
+.nc-desc{font-size:13px;color:var(--gray);line-height:1.55;margin-top:auto}
+
 /* ── CIERRE HER ── */
 #s-cierre{
   background:var(--dark);padding:100px 80px;
