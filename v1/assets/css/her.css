@@ -120,14 +120,14 @@
 .stat-n.mono{font-variant-numeric:tabular-nums}
 .sb-sub{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:5px;line-height:1.45}
 .sb-sub strong{color:#fff}
-.rg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.rg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 #s-aprendizajes .rg{grid-template-columns:1fr 1fr}
-.rc{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:14px 18px}
-.rc-h{display:flex;align-items:center;gap:7px;margin-bottom:6px}
-.rc-ck{width:17px;height:17px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;flex-shrink:0}
-.rc-t{font-size:12px;color:var(--navy);line-height:1.3}
+.rc{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:28px 24px}
+.rc-h{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.rc-ck{width:20px;height:20px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0}
+.rc-t{font-size:14px;color:var(--navy);line-height:1.3;font-weight:500}
 .rc-t .arr{color:var(--red);font-weight:600}
-.rc-b{font-size:11px;color:var(--gray);line-height:1.5}
+.rc-b{font-size:13px;color:var(--gray);line-height:1.55}
 .rc-b strong{color:var(--navy)}
 
 /* ── CORREGIDO ── */
