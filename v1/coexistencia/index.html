@@ -23,30 +23,6 @@
     </div>
   </header>
 
-  <!-- ── S1 PORTADA ── -->
-  <section id="s-portada">
-    <div class="port-bg">
-      <div class="port-gray"></div>
-      <div class="port-red"></div>
-    </div>
-    <div class="port-content">
-      <div class="node-visual">
-        <div class="node"></div>
-        <div class="node-line active"></div>
-        <div class="node"></div>
-        <div class="node-line active"></div>
-        <div class="node"></div>
-        <div class="node-line"></div>
-        <div class="node gray"></div>
-        <div class="node-line"></div>
-        <div class="node gray"></div>
-      </div>
-      <div class="port-super"><span class="d"></span>AlmaWolf Lab · Proyecto de integración</div>
-      <div class="port-title">Coexistencia</div>
-      <div class="port-sub">Woztell conectado con los sistemas de AlmaWolf. Los resúmenes de conversaciones comerciales de WhatsApp fluyen hacia HER, el CRM, los calendarios y lo que venga después.</div>
-    </div>
-  </section>
-
   <!-- ── S2 QUÉ ES ── -->
   <section id="s-que-es" class="bg-l">
     <div class="sec-lbl"><span class="d"></span>El proyecto</div>
@@ -70,179 +46,32 @@
     </div>
     <div class="int-grid">
 
-      <div class="int-card done">
-        <div class="int-status done-s"><span class="d"></span>Completado · V1</div>
-        <div class="int-title">HER · Inteligencia operacional</div>
+      <div class="int-card">
+        <div class="int-title">Resúmenes de conversaciones</div>
         <div class="int-desc">Los resúmenes se ingresan en el RAG de HER y quedan disponibles para consulta en lenguaje natural. El manager puede preguntar por voz qué habló un comercial con un cliente.</div>
-        <ul class="int-pts">
-          <li>Nueva tabla <code style="font-size:11px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">her.woztell_conversations</code> — RAG independiente</li>
-          <li>Ingesta asíncrona vía callbacks Celery de Woztell</li>
-          <li>Tool <code style="font-size:11px;background:rgba(193,59,47,.1);border-radius:3px;padding:1px 5px;color:var(--red)">query_woztell</code> para agentes manager</li>
-        </ul>
-        <span class="int-tag live">En producción · Sep 2026</span>
       </div>
 
-      <div class="int-card next">
-        <div class="int-status next-s"><span class="d"></span>Próximo</div>
+      <div class="int-card">
         <div class="int-title">CRM · Enriquecimiento de contactos</div>
-        <div class="int-desc">Conectar el teléfono del cliente en los resúmenes con su ficha en el CRM. Un job retroactivo que rellena el campo <code style="font-size:11px;background:rgba(0,0,0,.06);border-radius:3px;padding:1px 5px">crm_contact_id</code> sin re-indexar embeddings.</div>
-        <ul class="int-pts g">
-          <li>phone → CRM API → contact_id · Enriquecimiento retroactivo</li>
-          <li>Filtro exacto por contact_id en queries (sin ambigüedad de nombre)</li>
-          <li>Campo ya preparado en la tabla desde V1</li>
-        </ul>
-        <span class="int-tag soon">En roadmap · V2</span>
+        <div class="int-desc">Conectar el teléfono del cliente en los resúmenes con su ficha en el CRM. Un job retroactivo que rellena el campo de contacto sin re-indexar embeddings.</div>
       </div>
 
-      <div class="int-card next">
-        <div class="int-status next-s"><span class="d"></span>Planificado</div>
-        <div class="int-title">Calendarios · Actividad comercial</div>
+      <div class="int-card">
+        <div class="int-title">Calendarios</div>
         <div class="int-desc">Cruzar los resúmenes de conversaciones con la agenda del comercial para construir una visión completa de la actividad: con quién habló, cuándo se reunió, qué quedó pendiente.</div>
-        <ul class="int-pts g">
-          <li>Sincronización con Google Calendar / Outlook</li>
-          <li>Correlación conversación → reunión → seguimiento</li>
-          <li>Timeline comercial unificado en HER</li>
-        </ul>
-        <span class="int-tag soon">En roadmap · V3</span>
       </div>
 
-      <div class="int-card future">
-        <div class="int-status next-s"><span class="d"></span>Futuro</div>
-        <div class="int-title">Más integraciones</div>
+      <div class="int-card">
+        <div class="int-title">Her</div>
         <div class="int-desc">El modelo de integración de Coexistencia es extensible a cualquier sistema que se beneficie de los datos comerciales de Woztell: herramientas de soporte, plataformas de análisis, dashboards de gestión.</div>
-        <ul class="int-pts g">
-          <li>Extensible a cualquier sistema del stack</li>
-          <li>Multi-tenant desde el diseño inicial</li>
-          <li>Piloto con más equipos comerciales</li>
-        </ul>
-        <span class="int-tag soon">Abierto</span>
       </div>
 
     </div>
   </section>
 
-  <!-- ── S4 V1 FLUJO ── -->
-  <section id="s-v1" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>V1 en detalle · HER</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2">
-      Woztell procesa en paralelo.<br>HER ingesta conforme llegan.
-    </div>
-    <div class="flow-row">
-      <div class="flow-step light">
-        <div class="flow-tag">Woztell</div>
-        <div class="flow-name">API Externa</div>
-        <div class="flow-sub">Genera resúmenes con Gemini</div>
-      </div>
-      <div class="flow-arr">→<div class="flow-arr-lbl">Celery ×N</div></div>
-      <div class="flow-step">
-        <div class="flow-tag">Woztell</div>
-        <div class="flow-name">N Callbacks</div>
-        <div class="flow-sub">Uno por empleado · async</div>
-      </div>
-      <div class="flow-arr">→<div class="flow-arr-lbl">POST</div></div>
-      <div class="flow-step accent">
-        <div class="flow-tag" style="color:rgba(255,255,255,.6)">HER API</div>
-        <div class="flow-name">/woztell/callback</div>
-        <div class="flow-sub" style="color:rgba(255,255,255,.7)">200 OK inmediato</div>
-      </div>
-      <div class="flow-arr">→<div class="flow-arr-lbl">background</div></div>
-      <div class="flow-step">
-        <div class="flow-tag">IngestService</div>
-        <div class="flow-name">Dedup + Embed</div>
-        <div class="flow-sub">Gemini embedding-001</div>
-      </div>
-      <div class="flow-arr">→</div>
-      <div class="flow-step">
-        <div class="flow-tag">her_prod</div>
-        <div class="flow-name">woztell_conversations</div>
-        <div class="flow-sub">Vector 768d · HNSW cosine</div>
-      </div>
-    </div>
-    <div class="flow-notes">
-      <div class="flow-note-item"><strong>200 OK inmediato:</strong> HER hace ack en el momento. La ingesta (dedup + embed + insert) ocurre en background sin bloquear el callback de Woztell.</div>
-      <div class="flow-note-item"><strong>RAG coexistente:</strong> tabla <code style="font-size:11px;background:rgba(193,59,47,.12);border-radius:3px;padding:1px 5px;color:var(--red)">woztell_conversations</code> completamente separada de <code style="font-size:11px;background:rgba(193,59,47,.12);border-radius:3px;padding:1px 5px;color:var(--red)">check_in_chunks</code>. Sin interferencia con el RAG existente de HER.</div>
-    </div>
-  </section>
-
-  <!-- ── S5 RESULTADOS ── -->
-  <section id="s-resultados" class="bg-w">
-    <div class="sec-lbl"><span class="d"></span>Resultados · V1</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:560px;line-height:1.2;margin-bottom:0">
-      Primera integración validada en producción.
-    </div>
-    <div class="stats-row">
-      <div class="stat-box">
-        <div class="stat-n">20/20</div>
-        <div class="stat-lbl">queries de validación — ambos RAGs respondiendo correctamente</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-n">20</div>
-        <div class="stat-lbl">conversaciones reales ingresadas en her_prod</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-n">4</div>
-        <div class="stat-lbl">callbacks independientes en una sola llamada — patrón Celery confirmado</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── S6 ROADMAP ── -->
-  <section id="s-roadmap" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Roadmap</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:560px;line-height:1.2;margin-bottom:0">
-      Cada integración, un módulo.<br>El hub crece en paralelo al negocio.
-    </div>
-    <div class="road-list">
-      <div class="road-item">
-        <div class="road-phase">
-          <div class="road-phase-n">V1</div>
-          <span class="road-phase-tag live">Live</span>
-        </div>
-        <div>
-          <div class="road-content-h">HER · Resúmenes en el RAG de inteligencia operacional</div>
-          <div class="road-content-body">Ingesta de resúmenes Woztell en tabla separada. Tool query_woztell para agentes manager. Piloto con Jorge Ortega (Woztell). Servicio her-coexistencia-resumenes en Cloud Run desde sep 2026.</div>
-        </div>
-      </div>
-      <div class="road-item">
-        <div class="road-phase">
-          <div class="road-phase-n">V2</div>
-          <span class="road-phase-tag soon">Roadmap</span>
-        </div>
-        <div>
-          <div class="road-content-h">CRM · Enriquecimiento de contactos comerciales</div>
-          <div class="road-content-body">Job retroactivo: client_phone → CRM API → crm_contact_id. Elimina ambigüedad de nombres. El campo ya está preparado en la tabla desde V1 — sin re-indexar embeddings. Extensión a más equipos comerciales.</div>
-        </div>
-      </div>
-      <div class="road-item">
-        <div class="road-phase">
-          <div class="road-phase-n">V3</div>
-          <span class="road-phase-tag soon">Roadmap</span>
-        </div>
-        <div>
-          <div class="road-content-h">Calendarios · Timeline comercial unificado</div>
-          <div class="road-content-body">Cruzar resúmenes de conversaciones con la agenda del comercial (Google Calendar / Outlook). Visión completa de la actividad: conversación → reunión → seguimiento pendiente.</div>
-        </div>
-      </div>
-      <div class="road-item">
-        <div class="road-phase">
-          <div class="road-phase-n">V+</div>
-          <span class="road-phase-tag soon">Abierto</span>
-        </div>
-        <div>
-          <div class="road-content-h">Más integraciones · Extensible al stack completo</div>
-          <div class="road-content-body">El modelo de Coexistencia es agnóstico al sistema de destino. Cualquier herramienta del stack de AlmaWolf que se beneficie de los datos comerciales de Woztell puede convertirse en un módulo nuevo.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── S7 CIERRE ── -->
-  <section id="s-cierre" class="bg-d">
-    <p class="cierre-body">
-      Woztell ya genera los datos.<br>
-      Coexistencia hace que <strong>lleguen a donde tienen valor</strong>.
-    </p>
-    <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="44" style="display:block;opacity:.18;filter:brightness(0) invert(1)">
+  <!-- ── CIERRE ── -->
+  <section id="s-cierre">
+    <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="44" style="display:block;filter:brightness(0) invert(1)">
   </section>
 
 </div>
