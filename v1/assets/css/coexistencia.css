@@ -44,6 +44,7 @@
 .int-status.done-s{color:var(--red)}.int-status.done-s .d{background:var(--red)}
 .int-status.next-s{color:var(--gray)}.int-status.next-s .d{background:var(--gray)}
 .int-title{font-size:clamp(20px,2.4vw,32px);font-weight:400;color:var(--navy);line-height:1.2}
+.int-soon{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
 .int-desc{font-size:13.5px;color:var(--gray);line-height:1.65}
 .int-pts{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px}
 .int-pts li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--navy);line-height:1.45}
