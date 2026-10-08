@@ -98,3 +98,10 @@ section{position:relative;overflow:hidden}
   opacity:1;
   transform:translateY(0);
 }
+
+/* ── LANG SWITCH ── */
+.lang-switch{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.04em}
+.lang-switch button{background:none;border:none;padding:0;cursor:pointer;color:var(--gray);font-family:var(--f);font-size:inherit;font-weight:inherit;transition:color .15s}
+.lang-switch button:hover{color:var(--navy)}
+.lang-switch button.active{color:var(--navy);font-weight:600;cursor:default}
+.lang-switch .sep{color:var(--border);font-size:11px;user-select:none}

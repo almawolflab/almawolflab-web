@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/her.css">
+<script src="../assets/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -17,58 +18,63 @@
 
   <!-- HEADER DE PROYECTO -->
   <header class="proj-header">
-    <a href="../index.html" class="back-link">AlmaWolf Lab</a>
-    <div class="proj-header-title">Proyecto HER · V5</div>
-    <div class="proj-header-logo">
+    <a href="../index.html" class="back-link" data-i18n="her.header_back">AlmaWolf Lab</a>
+    <div class="proj-header-title" data-i18n="her.header_title">Proyecto HER · V5</div>
+    <div class="proj-header-logo" style="display:flex;align-items:center;gap:20px">
+      <div class="lang-switch">
+        <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+        <span class="sep">|</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
       <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="32" style="display:block">
     </div>
   </header>
 
   <!-- ── S1 QUÉ ES ── -->
   <section id="s-que-es" class="bg-w">
-    <div class="sec-lbl"><span class="d"></span>El proyecto</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.que_es_lbl">El proyecto</span></div>
     <div class="two-col">
       <div>
-        <h2 class="col-h">El manager pregunta. Her ya lo sabe.</h2>
+        <h2 class="col-h" data-i18n="her.que_es_h">El manager pregunta. Her ya lo sabe.</h2>
       </div>
       <div class="col-body">
-        <p>Her es el sistema de inteligencia operacional de AlmaWolf. Cada empleado hace un check-in semanal por voz con un agente conversacional. El sistema transcribe, estructura y almacena lo que pasó.</p>
-        <p>Cuando el manager quiere saber qué ha hecho su equipo, no consulta reportes: pregunta a Her en lenguaje natural. Her recupera la información del RAG y responde con trazabilidad de fuente.</p>
+        <p data-i18n="her.que_es_p1">Her es el sistema de inteligencia operacional de AlmaWolf. Cada empleado hace un check-in semanal por voz con un agente conversacional. El sistema transcribe, estructura y almacena lo que pasó.</p>
+        <p data-i18n="her.que_es_p2">Cuando el manager quiere saber qué ha hecho su equipo, no consulta reportes: pregunta a Her en lenguaje natural. Her recupera la información del RAG y responde con trazabilidad de fuente.</p>
       </div>
     </div>
   </section>
 
   <!-- ── S2 ÍNDICE ── -->
   <section id="s-indice" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Índice</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.indice_lbl">Índice</span></div>
     <div class="idx-grid">
       <div>
-        <a href="#s-objetivo" class="idx-row"><span class="idx-n">01</span><span>El objetivo</span></a>
-        <a href="#s-problema" class="idx-row"><span class="idx-n">02</span><span>Problemas y soluciones</span></a>
-        <a href="#s-arquitectura" class="idx-row"><span class="idx-n">03</span><span>Arquitectura</span></a>
-        <a href="#s-fase1" class="idx-row"><span class="idx-n">04</span><span>Agente de check-in</span></a>
-        <a href="#s-fase2" class="idx-row"><span class="idx-n">05</span><span>Agente de consulta</span></a>
-        <a href="#s-experimento" class="idx-row"><span class="idx-n">06</span><span>Resultados del experimento</span></a>
-        <a href="#s-piloto" class="idx-row"><span class="idx-n">07</span><span>Resultados del piloto</span></a>
+        <a href="#s-objetivo" class="idx-row"><span class="idx-n">01</span><span data-i18n="her.indice_01">El objetivo</span></a>
+        <a href="#s-problema" class="idx-row"><span class="idx-n">02</span><span data-i18n="her.indice_02">Problemas y soluciones</span></a>
+        <a href="#s-arquitectura" class="idx-row"><span class="idx-n">03</span><span data-i18n="her.indice_03">Arquitectura</span></a>
+        <a href="#s-fase1" class="idx-row"><span class="idx-n">04</span><span data-i18n="her.indice_04">Agente de check-in</span></a>
+        <a href="#s-fase2" class="idx-row"><span class="idx-n">05</span><span data-i18n="her.indice_05">Agente de consulta</span></a>
+        <a href="#s-experimento" class="idx-row"><span class="idx-n">06</span><span data-i18n="her.indice_06">Resultados del experimento</span></a>
+        <a href="#s-piloto" class="idx-row"><span class="idx-n">07</span><span data-i18n="her.indice_07">Resultados del piloto</span></a>
       </div>
       <div>
-        <a href="#s-corregido" class="idx-row"><span class="idx-n">08</span><span>Lo que hemos corregido</span></a>
-        <a href="#s-riesgos" class="idx-row"><span class="idx-n">09</span><span>Riesgos y mitigaciones</span></a>
-        <a href="#s-aprendizajes" class="idx-row"><span class="idx-n">10</span><span>Aprendizajes</span></a>
-        <a href="#s-siguientes" class="idx-row"><span class="idx-n">11</span><span>Lo que viene</span></a>
-        <a href="#s-equipo" class="idx-row"><span class="idx-n">12</span><span>Equipo</span></a>
+        <a href="#s-corregido" class="idx-row"><span class="idx-n">08</span><span data-i18n="her.indice_08">Lo que hemos corregido</span></a>
+        <a href="#s-riesgos" class="idx-row"><span class="idx-n">09</span><span data-i18n="her.indice_09">Riesgos y mitigaciones</span></a>
+        <a href="#s-aprendizajes" class="idx-row"><span class="idx-n">10</span><span data-i18n="her.indice_10">Aprendizajes</span></a>
+        <a href="#s-siguientes" class="idx-row"><span class="idx-n">11</span><span data-i18n="her.indice_11">Lo que viene</span></a>
+        <a href="#s-equipo" class="idx-row"><span class="idx-n">12</span><span data-i18n="her.indice_12">Equipo</span></a>
       </div>
     </div>
   </section>
 
   <!-- ── S3 OBJETIVO ── -->
   <section id="s-objetivo" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>El objetivo</div>
-    <div class="big">
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.objetivo_lbl">El objetivo</span></div>
+    <div class="big" data-i18n="her.objetivo_big" data-i18n-html>
       <span class="accent">Visibilizar y compartir</span><br>
       el conocimiento de negocio<br>de cada individuo<br>de la organización.
     </div>
-    <p class="body-p" style="max-width:380px;margin-top:24px">
+    <p class="body-p" style="max-width:380px;margin-top:24px" data-i18n="her.objetivo_p">
       Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.
     </p>
   </section>
@@ -76,30 +82,30 @@
   <!-- ── S4 EL PROBLEMA ── -->
   <section id="s-problema" class="bg-l">
     <div class="s4l">
-      <div class="sec-lbl"><span class="d"></span>El problema</div>
-      <div class="prob-title">El conocimiento se evapora cada día.</div>
-      <p class="prob-sub">Muere en reuniones, llamadas y correos…</p>
+      <div class="sec-lbl"><span class="d"></span><span data-i18n="her.problema_lbl">El problema</span></div>
+      <div class="prob-title" data-i18n="her.problema_title">El conocimiento se evapora cada día.</div>
+      <p class="prob-sub" data-i18n="her.problema_sub">Muere en reuniones, llamadas y correos…</p>
       <ul class="dl">
-        <li>El manager no ve qué hizo su equipo sin preguntar.</li>
-        <li>El CEO no tiene visión de grupo sin una reunión.</li>
-        <li>Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
+        <li data-i18n="her.problema_li1">El manager no ve qué hizo su equipo sin preguntar.</li>
+        <li data-i18n="her.problema_li2">El CEO no tiene visión de grupo sin una reunión.</li>
+        <li data-i18n="her.problema_li3">Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
       </ul>
     </div>
     <div class="s4r">
-      <div class="prow"><div class="pp-col"><div class="pp">Relatividad</div><div class="pp-desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Priorización</div><div class="ps-desc">El agente pondera cada tema por importancia real, no por quién más habla</div></div></div>
-      <div class="prow"><div class="pp-col"><div class="pp">Intermitente</div><div class="pp-desc">La disponibilidad y el ánimo del interlocutor varían según el momento</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Determinismo</div><div class="ps-desc">Misma calidad de respuesta siempre, sin variación por estado de ánimo</div></div></div>
-      <div class="prow"><div class="pp-col"><div class="pp">Idiomas</div><div class="pp-desc">Las barreras lingüísticas limitan la profundidad de la conversación</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Multiidioma nativo</div><div class="ps-desc">Conversa en el idioma de cada persona sin perder matices</div></div></div>
-      <div class="prow"><div class="pp-col"><div class="pp">Husos horarios</div><div class="pp-desc">La diferencia horaria impide la sincronía entre equipos distribuidos</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Asincronía</div><div class="ps-desc">Disponible en cualquier momento, sin necesidad de coincidir en horario</div></div></div>
-      <div class="prow"><div class="pp-col"><div class="pp">Cultura</div><div class="pp-desc">Los códigos culturales distintos generan malentendidos y fricción</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Tropicalización</div><div class="ps-desc">Adapta el tono y las referencias al contexto cultural de cada persona</div></div></div>
-      <div class="prow"><div class="pp-col"><div class="pp">Pérdida de conocimiento</div><div class="pp-desc">El conocimiento tácito no queda registrado cuando las personas se van</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Transferencia estructurada</div><div class="ps-desc">Convierte el conocimiento conversacional en datos estructurados y reutilizables</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob1_name">Relatividad</div><div class="pp-desc" data-i18n="her.prob1_desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol1_name">Priorización</div><div class="ps-desc" data-i18n="her.sol1_desc">El agente pondera cada tema por importancia real, no por quién más habla</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob2_name">Intermitente</div><div class="pp-desc" data-i18n="her.prob2_desc">La disponibilidad y el ánimo del interlocutor varían según el momento</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol2_name">Determinismo</div><div class="ps-desc" data-i18n="her.sol2_desc">Misma calidad de respuesta siempre, sin variación por estado de ánimo</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob3_name">Idiomas</div><div class="pp-desc" data-i18n="her.prob3_desc">Las barreras lingüísticas limitan la profundidad de la conversación</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol3_name">Multiidioma nativo</div><div class="ps-desc" data-i18n="her.sol3_desc">Conversa en el idioma de cada persona sin perder matices</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob4_name">Husos horarios</div><div class="pp-desc" data-i18n="her.prob4_desc">La diferencia horaria impide la sincronía entre equipos distribuidos</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol4_name">Asincronía</div><div class="ps-desc" data-i18n="her.sol4_desc">Disponible en cualquier momento, sin necesidad de coincidir en horario</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob5_name">Cultura</div><div class="pp-desc" data-i18n="her.prob5_desc">Los códigos culturales distintos generan malentendidos y fricción</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol5_name">Tropicalización</div><div class="ps-desc" data-i18n="her.sol5_desc">Adapta el tono y las referencias al contexto cultural de cada persona</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="her.prob6_name">Pérdida de conocimiento</div><div class="pp-desc" data-i18n="her.prob6_desc">El conocimiento tácito no queda registrado cuando las personas se van</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="her.sol_lbl">Solución</div><div class="ps-txt" data-i18n="her.sol6_name">Transferencia estructurada</div><div class="ps-desc" data-i18n="her.sol6_desc">Convierte el conocimiento conversacional en datos estructurados y reutilizables</div></div></div>
     </div>
   </section>
 
   <!-- ── S5 ARQUITECTURA ── -->
   <section id="s-arquitectura" class="bg-l">
-    <div class="sec-lbl plain"><span class="d"></span>Arquitectura</div>
-    <div class="arch-h">Dos tipos de agentes, una misma base de conocimiento.</div>
-    <div class="arch-sub">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
+    <div class="sec-lbl plain"><span class="d"></span><span data-i18n="her.arq_lbl">Arquitectura</span></div>
+    <div class="arch-h" data-i18n="her.arq_h">Dos tipos de agentes, una misma base de conocimiento.</div>
+    <div class="arch-sub" data-i18n="her.arq_sub">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
     <div class="arch-wrap">
       <div class="a-actor">
         <div class="a-icon">👤</div>
@@ -152,37 +158,38 @@
       </div>
     </div>
     <div class="arch-legend">
-      <div class="al-item"><div class="al-d dk"></div><span>Check-in · capturar y guardar</span></div>
-      <div class="al-item"><div class="al-d rd"></div><span>Consulta · recuperar y responder</span></div>
+      <div class="al-item"><div class="al-d dk"></div><span data-i18n="her.arq_legend1">Check-in · capturar y guardar</span></div>
+      <div class="al-item"><div class="al-d rd"></div><span data-i18n="her.arq_legend2">Consulta · recuperar y responder</span></div>
     </div>
   </section>
 
   <!-- ── S6 FASE 1 — CHECK-IN ── -->
   <section id="s-fase1" class="bg-l">
     <div class="fase-l">
-      <div class="sec-lbl"><span class="d"></span>Fase 1</div>
-      <div class="fase-title">Una persona, un agente dedicado.</div>
-      <p class="body-p" style="margin-top:0">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
+      <div class="sec-lbl"><span class="d"></span><span data-i18n="her.fase1_lbl">Fase 1</span></div>
+      <div class="fase-title" data-i18n="her.fase1_title">Una persona, un agente dedicado.</div>
+      <p class="body-p" style="margin-top:0" data-i18n="her.fase1_p">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
     </div>
     <div class="fase-r">
-      <div class="q-sup">Transcripción real · Piloto agosto 2026 *</div>
-      <div class="audio-note">🎵 <span>Audio · Agente María con Eliana · 26 ago 2026</span></div>
+      <div class="q-sup" data-i18n="her.fase1_sup">Transcripción real · Piloto agosto 2026 *</div>
+      <div class="audio-note" data-i18n="her.fase1_audio">🎵 Audio · Agente María con Eliana · 26 ago 2026</div>
+      <div class="transcript-note" data-i18n="her.transcript_note"></div>
       <div style="display:flex;flex-direction:column;gap:3px">
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Remoto, de cinco a once y media.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">La página de tokens y el [ID interno]; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de [Proyecto A], actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">No.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Te cuento las novedades del grupo de ayer: se finaliza el DPA para [un cliente]. Se avanzó en la integración de [plataforma de contactos]. Se priorizó una oferta de upgrades. El rediseño de [Proyecto A] incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Gracias.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Gracias. Que te vaya bien mañana.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">Sí.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">Remoto, de cinco a once y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">La página de tokens y el [ID interno]; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de [Proyecto A], actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">No.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Te cuento las novedades del grupo de ayer: se finaliza el DPA para [un cliente]. Se avanzó en la integración de [plataforma de contactos]. Se priorizó una oferta de upgrades. El rediseño de [Proyecto A] incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
+        <div class="tr-line"><span class="tr-who us" data-i18n="her.tr_who_us">Empleada</span><span class="tr-text">Gracias.</span></div>
+        <div class="tr-line"><span class="tr-who ag" data-i18n="her.tr_who_ag">Agente</span><span class="tr-text">Gracias. Que te vaya bien mañana.</span></div>
       </div>
     </div>
   </section>
@@ -190,13 +197,14 @@
   <!-- ── S7 FASE 2 — CONSULTA ── -->
   <section id="s-fase2" class="bg-l">
     <div class="fase-l">
-      <div class="sec-lbl"><span class="d"></span>Fase 2 — Compartir</div>
-      <div class="fase-title">El conocimiento se comparte.</div>
-      <p class="body-p" style="margin-top:0">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
+      <div class="sec-lbl"><span class="d"></span><span data-i18n="her.fase2_lbl">Fase 2 — Compartir</span></div>
+      <div class="fase-title" data-i18n="her.fase2_title">El conocimiento se comparte.</div>
+      <p class="body-p" style="margin-top:0" data-i18n="her.fase2_p">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
     </div>
     <div class="fase-r">
-      <div class="q-sup">Transcripción real · Piloto septiembre 2026</div>
-      <div class="audio-note">🎵 <span>Audio · Manager Jorge · 14 sep 2026</span></div>
+      <div class="q-sup" data-i18n="her.fase2_sup">Transcripción real · Piloto septiembre 2026</div>
+      <div class="audio-note" data-i18n="her.fase2_audio">🎵 Audio · Manager Jorge · 14 sep 2026</div>
+      <div class="transcript-note" data-i18n="her.transcript_note"></div>
       <div style="margin-top:4px;display:flex;flex-direction:column;gap:5px">
         <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
         <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">Me gustaría saber qué ha hecho [Empleado] en la última semana de julio.</span></div>
@@ -208,133 +216,133 @@
 
   <!-- ── S8 EXPERIMENTO JUNIO ── -->
   <section id="s-experimento" class="bg-l">
-    <div class="sec-lbl plain"><span class="d"></span>Experimento &nbsp;·&nbsp; Junio 2026</div>
-    <div class="exp-h">De dónde partimos — experimento de junio.</div>
+    <div class="sec-lbl plain"><span class="d"></span><span data-i18n="her.exp_lbl">Experimento · Junio 2026</span></div>
+    <div class="exp-h" data-i18n="her.exp_h">De dónde partimos — experimento de junio.</div>
     <div class="stat-banner">
-      <div><div class="stat-n">100%</div><div class="sb-sub"><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
-      <div><div class="stat-n">95%</div><div class="sb-sub"><strong>consultas correctas</strong> — en lenguaje natural</div></div>
-      <div><div class="stat-n mono">3,1 min</div><div class="sb-sub"><strong>de media por check-in</strong> — 131 en junio</div></div>
+      <div><div class="stat-n">100%</div><div class="sb-sub" data-i18n="her.exp_stat1" data-i18n-html><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
+      <div><div class="stat-n">95%</div><div class="sb-sub" data-i18n="her.exp_stat2" data-i18n-html><strong>consultas correctas</strong> — en lenguaje natural</div></div>
+      <div><div class="stat-n mono">3,1 min</div><div class="sb-sub" data-i18n="her.exp_stat3" data-i18n-html><strong>de media por check-in</strong> — 131 en junio</div></div>
     </div>
     <div class="rg">
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Relatividad <span class="arr">→</span> Priorización</div></div><div class="rc-b">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Intermitente <span class="arr">→</span> Determinismo</div></div><div class="rc-b">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Idiomas <span class="arr">→</span> Multiidioma nativo</div></div><div class="rc-b">Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Agendas <span class="arr">→</span> Asincronía</div></div><div class="rc-b"><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Cultura <span class="arr">→</span> Tropicalización</div></div><div class="rc-b">Voz y modismos nativos por región — <strong>argentino, español y más variedades</strong>, adaptado a su contexto cultural.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div><div class="rc-b">Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc1_from">Relatividad</span> <span class="arr">→</span> <span data-i18n="her.exp_rc1_to">Priorización</span></div></div><div class="rc-b" data-i18n="her.exp_rc1_b" data-i18n-html>Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc2_from">Intermitente</span> <span class="arr">→</span> <span data-i18n="her.exp_rc2_to">Determinismo</span></div></div><div class="rc-b" data-i18n="her.exp_rc2_b" data-i18n-html>Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc3_from">Idiomas</span> <span class="arr">→</span> <span data-i18n="her.exp_rc3_to">Multiidioma nativo</span></div></div><div class="rc-b" data-i18n="her.exp_rc3_b" data-i18n-html>Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc4_from">Agendas</span> <span class="arr">→</span> <span data-i18n="her.exp_rc4_to">Asincronía</span></div></div><div class="rc-b" data-i18n="her.exp_rc4_b" data-i18n-html><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc5_from">Cultura</span> <span class="arr">→</span> <span data-i18n="her.exp_rc5_to">Tropicalización</span></div></div><div class="rc-b" data-i18n="her.exp_rc5_b" data-i18n-html>Voz y modismos nativos por región — <strong>argentino, español y más variedades</strong>, adaptado a su contexto cultural.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.exp_rc6_from">Pérdida</span> <span class="arr">→</span> <span data-i18n="her.exp_rc6_to">Transferencia estructurada</span></div></div><div class="rc-b" data-i18n="her.exp_rc6_b" data-i18n-html>Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div></div>
     </div>
   </section>
 
   <!-- ── S9 PILOTO AGOSTO ── -->
   <section id="s-piloto" class="bg-l">
-    <div class="sec-lbl plain"><span class="d"></span>Piloto &nbsp;·&nbsp; Agosto 2026</div>
-    <div class="exp-h">Nueve personas, un mes de check-ins.</div>
+    <div class="sec-lbl plain"><span class="d"></span><span data-i18n="her.piloto_lbl">Piloto · Agosto 2026</span></div>
+    <div class="exp-h" data-i18n="her.piloto_h">Nueve personas, un mes de check-ins.</div>
     <div class="stat-banner">
-      <div><div class="stat-n">96%</div><div class="sb-sub"><strong>de cumplimiento</strong> — en las nueve personas</div></div>
-      <div><div class="stat-n">82%</div><div class="sb-sub"><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
-      <div><div class="stat-n mono">169</div><div class="sb-sub"><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
+      <div><div class="stat-n">96%</div><div class="sb-sub" data-i18n="her.piloto_stat1" data-i18n-html><strong>de cumplimiento</strong> — en las nueve personas</div></div>
+      <div><div class="stat-n">82%</div><div class="sb-sub" data-i18n="her.piloto_stat2" data-i18n-html><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
+      <div><div class="stat-n mono">169</div><div class="sb-sub" data-i18n="her.piloto_stat3" data-i18n-html><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
     </div>
     <div class="rg">
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Adopción <span class="arr">→</span> Un hábito diario</div></div><div class="rc-b">Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Constancia <span class="arr">→</span> Semana a semana</div></div><div class="rc-b">El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Fiabilidad <span class="arr">→</span> Un servicio que aguanta</div></div><div class="rc-b">De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Resumen <span class="arr">→</span> Se escucha entero</div></div><div class="rc-b">El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Precisión <span class="arr">→</span> Respuestas sólidas</div></div><div class="rc-b">Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Siempre responde <span class="arr">→</span> No rellena los huecos</div></div><div class="rc-b">Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc1_from">Adopción</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc1_to">Un hábito diario</span></div></div><div class="rc-b" data-i18n="her.piloto_rc1_b" data-i18n-html>Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc2_from">Constancia</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc2_to">Semana a semana</span></div></div><div class="rc-b" data-i18n="her.piloto_rc2_b" data-i18n-html>El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc3_from">Fiabilidad</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc3_to">Un servicio que aguanta</span></div></div><div class="rc-b" data-i18n="her.piloto_rc3_b" data-i18n-html>De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc4_from">Resumen</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc4_to">Se escucha entero</span></div></div><div class="rc-b" data-i18n="her.piloto_rc4_b" data-i18n-html>El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc5_from">Precisión</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc5_to">Respuestas sólidas</span></div></div><div class="rc-b" data-i18n="her.piloto_rc5_b" data-i18n-html>Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t"><span data-i18n="her.piloto_rc6_from">Siempre responde</span> <span class="arr">→</span> <span data-i18n="her.piloto_rc6_to">No rellena los huecos</span></div></div><div class="rc-b" data-i18n="her.piloto_rc6_b" data-i18n-html>Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div></div>
     </div>
   </section>
 
   <!-- ── S10 LO QUE HEMOS CORREGIDO ── -->
   <section id="s-corregido" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Lo que hemos corregido</div>
-    <div class="corr-h">Del experimento al piloto: cinco cosas corregidas.</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.corr_lbl">Lo que hemos corregido</span></div>
+    <div class="corr-h" data-i18n="her.corr_h">Del experimento al piloto: cinco cosas corregidas.</div>
     <div class="cg">
-      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera y deja terminar a cada persona.</div></div></div>
-      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div></div>
-      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Se usa el huso de cada manager.</div></div></div>
-      <div class="cpair"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera mientras piensas.</div></div></div>
-      <div class="cpair solo"><div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div><div class="ca"><div class="clbl a">Después</div><div class="ctxt">Ahora llegan a su final natural.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl" data-i18n="her.corr_lbl_before">Antes</div><div class="ctxt" data-i18n="her.corr1_before" data-i18n-html><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div><div class="ca"><div class="clbl a" data-i18n="her.corr_lbl_after">Después</div><div class="ctxt" data-i18n="her.corr1_after">Espera y deja terminar a cada persona.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl" data-i18n="her.corr_lbl_before">Antes</div><div class="ctxt" data-i18n="her.corr2_before" data-i18n-html><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div><div class="ca"><div class="clbl a" data-i18n="her.corr_lbl_after">Después</div><div class="ctxt" data-i18n="her.corr2_after">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl" data-i18n="her.corr_lbl_before">Antes</div><div class="ctxt" data-i18n="her.corr3_before" data-i18n-html><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div><div class="ca"><div class="clbl a" data-i18n="her.corr_lbl_after">Después</div><div class="ctxt" data-i18n="her.corr3_after">Se usa el huso de cada manager.</div></div></div>
+      <div class="cpair"><div class="cb"><div class="clbl" data-i18n="her.corr_lbl_before">Antes</div><div class="ctxt" data-i18n="her.corr4_before" data-i18n-html><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div><div class="ca"><div class="clbl a" data-i18n="her.corr_lbl_after">Después</div><div class="ctxt" data-i18n="her.corr4_after">Espera mientras piensas.</div></div></div>
+      <div class="cpair solo"><div class="cb"><div class="clbl" data-i18n="her.corr_lbl_before">Antes</div><div class="ctxt" data-i18n="her.corr5_before" data-i18n-html><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div><div class="ca"><div class="clbl a" data-i18n="her.corr_lbl_after">Después</div><div class="ctxt" data-i18n="her.corr5_after">Ahora llegan a su final natural.</div></div></div>
     </div>
   </section>
 
   <!-- ── S11 RIESGOS ── -->
   <section id="s-riesgos" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Riesgos y mitigaciones</div>
-    <div class="rh">Cada riesgo tiene su mitigación por diseño.</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.riesgos_lbl">Riesgos y mitigaciones</span></div>
+    <div class="rh" data-i18n="her.riesgos_h">Cada riesgo tiene su mitigación por diseño.</div>
     <div class="risg">
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Fatiga de check-in</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Breve, asíncrona y en su idioma.</div></div></div>
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Privacidad y datos</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Datos en la UE y consentimiento.</div></div></div>
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Respuestas incorrectas</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Respuestas siempre trazables.</div></div></div>
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Parecer un formulario</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Una conversación real, no un cuestionario leído en voz alta.</div></div></div>
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Atados a un proveedor</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div></div>
-      <div class="rpair"><div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Usabilidad</div></div><div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Llamados y notificaciones por parte del agente.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo1">Fatiga de check-in</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit1">Breve, asíncrona y en su idioma.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo2">Privacidad y datos</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit2">Datos en la UE y consentimiento.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo3">Respuestas incorrectas</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit3">Respuestas siempre trazables.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo4">Parecer un formulario</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit4">Una conversación real, no un cuestionario leído en voz alta.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo5">Atados a un proveedor</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit5">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div></div>
+      <div class="rpair"><div class="rc2"><div class="rlbl" data-i18n="her.riesgo_lbl">Riesgo</div><div class="rtxt" data-i18n="her.riesgo6">Usabilidad</div></div><div class="rm"><div class="rlbl m" data-i18n="her.mit_lbl">Mitigación</div><div class="rtxt" data-i18n="her.mit6">Llamados y notificaciones por parte del agente.</div></div></div>
     </div>
   </section>
 
   <!-- ── S APRENDIZAJES ── -->
   <section id="s-aprendizajes" class="bg-l">
-    <div class="sec-lbl plain"><span class="d"></span>Aprendizajes &nbsp;·&nbsp; Piloto agosto 2026</div>
-    <div class="exp-h">Lo que el piloto dejó claro.</div>
+    <div class="sec-lbl plain"><span class="d"></span><span data-i18n="her.apr_lbl">Aprendizajes · Piloto agosto 2026</span></div>
+    <div class="exp-h" data-i18n="her.apr_h">Lo que el piloto dejó claro.</div>
     <div class="rg">
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Estabilidad</div></div><div class="rc-b">El sistema alcanza el 80 % de estabilidad técnica, pero la tasa de check-ins completados es del 100 %. La rutina se sostuvo independientemente de los cortes.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">IA Conversacional</div></div><div class="rc-b">El estado del arte de la voz conversacional aún no ofrece el 100 % de estabilidad. La tecnología está madurando y el sistema permite pruebas A/B con distintos frameworks y proveedores para mejorar la experiencia.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Gobernanza</div></div><div class="rc-b">El acceso universal no es necesario ni recomendable. La siguiente fase implementará jerarquía por equipos: cada manager accede solo a su capa.</div></div>
-      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Capacidades</div></div><div class="rc-b">Las herramientas de consulta son extensibles. Las comparaciones complejas entre personas requieren evolucionar el RAG y están previstas como evolutivo.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="her.apr_rc1_t">Estabilidad</div></div><div class="rc-b" data-i18n="her.apr_rc1_b">El sistema alcanza el 80 % de estabilidad técnica, pero la tasa de check-ins completados es del 100 %. La rutina se sostuvo independientemente de los cortes.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="her.apr_rc2_t">IA Conversacional</div></div><div class="rc-b" data-i18n="her.apr_rc2_b">El estado del arte de la voz conversacional aún no ofrece el 100 % de estabilidad. La tecnología está madurando y el sistema permite pruebas A/B con distintos frameworks y proveedores para mejorar la experiencia.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="her.apr_rc3_t">Gobernanza</div></div><div class="rc-b" data-i18n="her.apr_rc3_b">El acceso universal no es necesario ni recomendable. La siguiente fase implementará jerarquía por equipos: cada manager accede solo a su capa.</div></div>
+      <div class="rc"><div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="her.apr_rc4_t">Capacidades</div></div><div class="rc-b" data-i18n="her.apr_rc4_b">Las herramientas de consulta son extensibles. Las comparaciones complejas entre personas requieren evolucionar el RAG y están previstas como evolutivo.</div></div>
     </div>
   </section>
 
   <!-- ── ROADMAP ── -->
   <section id="s-siguientes" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Lo que viene</div>
-    <div class="exp-h">Roadmap.</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.sig_lbl">Lo que viene</span></div>
+    <div class="exp-h" data-i18n="her.sig_h">Roadmap.</div>
     <div class="ng">
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">01 · Idiomas</div>
-        <div class="nc-t">Más idiomas</div>
-        <div class="nc-desc">Más idiomas, más variantes culturales y un agente para cada una.</div>
+        <div class="nc-n" data-i18n="her.sig_nc1_n">01 · Idiomas</div>
+        <div class="nc-t" data-i18n="her.sig_nc1_t">Más idiomas</div>
+        <div class="nc-desc" data-i18n="her.sig_nc1_d">Más idiomas, más variantes culturales y un agente para cada una.</div>
       </div>
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">02 · Integraciones</div>
-        <div class="nc-t">Más fuentes</div>
-        <div class="nc-desc">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
+        <div class="nc-n" data-i18n="her.sig_nc2_n">02 · Integraciones</div>
+        <div class="nc-t" data-i18n="her.sig_nc2_t">Más fuentes</div>
+        <div class="nc-desc" data-i18n="her.sig_nc2_d">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
       </div>
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">03 · Acceso</div>
-        <div class="nc-t">Permisos</div>
-        <div class="nc-desc">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
+        <div class="nc-n" data-i18n="her.sig_nc3_n">03 · Acceso</div>
+        <div class="nc-t" data-i18n="her.sig_nc3_t">Permisos</div>
+        <div class="nc-desc" data-i18n="her.sig_nc3_d">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
       </div>
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">04 · Canal</div>
-        <div class="nc-t">Canal multimodal</div>
-        <div class="nc-desc">Llamadas inbound y outbound, email y otros canales, para que el agente llegue donde está la persona.</div>
+        <div class="nc-n" data-i18n="her.sig_nc4_n">04 · Canal</div>
+        <div class="nc-t" data-i18n="her.sig_nc4_t">Canal multimodal</div>
+        <div class="nc-desc" data-i18n="her.sig_nc4_d">Llamadas inbound y outbound, email y otros canales, para que el agente llegue donde está la persona.</div>
       </div>
     </div>
   </section>
 
   <!-- ── S EQUIPO ── -->
   <section id="s-equipo" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Equipo</div>
-    <div class="equipo-h">Quién hay detrás.</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="her.equipo_lbl">Equipo</span></div>
+    <div class="equipo-h" data-i18n="her.equipo_h">Quién hay detrás.</div>
     <div class="equipo-cards">
       <div class="team-card">
         <img class="team-photo" src="../assets/gabriel.jpg" alt="Gabriel Hernán Noguera" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="team-photo-ph" style="display:none"></div>
         <div class="team-name">Gabriel Hernán Noguera</div>
-        <div class="team-role">Responsable</div>
+        <div class="team-role" data-i18n="her.equipo_role1">Responsable</div>
       </div>
       <div class="team-card" style="opacity:.45">
         <div class="team-photo-ph"></div>
         <div class="team-name">Eduardo Marchuet</div>
-        <div class="team-role gray">Programme Manager</div>
+        <div class="team-role gray" data-i18n="her.equipo_role2">Programme Manager</div>
       </div>
       <div class="team-card" style="opacity:.45">
         <div class="team-photo-ph"></div>
         <div class="team-name">Jose Perez</div>
-        <div class="team-role gray">Executive Sponsor</div>
+        <div class="team-role gray" data-i18n="her.equipo_role3">Executive Sponsor</div>
       </div>
     </div>
     <p style="font-size:12px;color:var(--gray);margin-top:20px">Fotos de Eduardo Marchuet y Jose Perez pendientes · AW-153</p>

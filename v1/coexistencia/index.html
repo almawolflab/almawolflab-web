@@ -10,60 +10,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/coexistencia.css">
+<script src="../assets/js/i18n.js" defer></script>
 </head>
 <body>
 <div id="content">
 
   <!-- HEADER -->
   <header class="proj-header">
-    <a href="../index.html" class="back-link">AlmaWolf Lab</a>
-    <div class="proj-header-title">Coexistencia</div>
-    <div class="proj-header-logo">
+    <a href="../index.html" class="back-link" data-i18n="coex.header_back">AlmaWolf Lab</a>
+    <div class="proj-header-title" data-i18n="coex.header_title">Coexistencia</div>
+    <div class="proj-header-logo" style="display:flex;align-items:center;gap:20px">
+      <div class="lang-switch">
+        <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+        <span class="sep">|</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
       <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="32" style="display:block">
     </div>
   </header>
 
-  <!-- ── S2 QUÉ ES ── -->
+  <!-- ── S1 QUÉ ES ── -->
   <section id="s-que-es" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>El proyecto</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="coex.que_es_lbl">El proyecto</span></div>
     <div class="two-col">
       <div>
-        <h2 class="col-h">Woztell genera datos comerciales valiosos. Coexistencia los conecta con todo.</h2>
+        <h2 class="col-h" data-i18n="coex.que_es_h">Woztell genera datos comerciales valiosos. Coexistencia los conecta con todo.</h2>
       </div>
       <div class="col-body">
-        <p>Coexistencia es la capa de integración entre Woztell y el resto del stack de AlmaWolf. Las conversaciones comerciales de WhatsApp tienen visibilidad donde importa: en el sistema de inteligencia operacional, en el CRM y en los calendarios del equipo.</p>
-        <p>Cada integración es un módulo independiente. Las conversaciones fluyen hacia HER para consulta en lenguaje natural, enriquecen las fichas de contacto en el CRM y se cruzan con los calendarios para construir una visión completa de la actividad comercial.</p>
+        <p data-i18n="coex.que_es_p1">Coexistencia es la capa de integración entre Woztell y el resto del stack de AlmaWolf. Las conversaciones comerciales de WhatsApp tienen visibilidad donde importa: en el sistema de inteligencia operacional, en el CRM y en los calendarios del equipo.</p>
+        <p data-i18n="coex.que_es_p2">Cada integración es un módulo independiente. Las conversaciones fluyen hacia HER para consulta en lenguaje natural, enriquecen las fichas de contacto en el CRM y se cruzan con los calendarios para construir una visión completa de la actividad comercial.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── S3 INTEGRACIONES ── -->
+  <!-- ── S2 INTEGRACIONES ── -->
   <section id="s-integraciones" class="bg-w">
-    <div class="sec-lbl"><span class="d"></span>Integraciones</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:580px;line-height:1.2">
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="coex.int_lbl">Integraciones</span></div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:580px;line-height:1.2" data-i18n="coex.int_h" data-i18n-html>
       Un hub de datos comerciales.<br>Módulo a módulo.
     </div>
     <div class="int-grid">
 
       <div class="int-card">
-        <div class="int-title">Resúmenes de conversaciones</div>
-        <div class="int-desc">Woztell procesa las conversaciones de WhatsApp del equipo comercial y genera resúmenes con un LLM. Los resúmenes se lanzan bajo demanda y llegan a los managers para que tengan visibilidad de lo que pasa en cada conversación.</div>
+        <div class="int-title" data-i18n="coex.card1_title">Resúmenes de conversaciones</div>
+        <div class="int-desc" data-i18n="coex.card1_desc">Woztell procesa las conversaciones de WhatsApp del equipo comercial y genera resúmenes con un LLM. Los resúmenes se lanzan bajo demanda y llegan a los managers para que tengan visibilidad de lo que pasa en cada conversación.</div>
       </div>
 
       <div class="int-card">
-        <div class="int-title">CRM · Enriquecimiento de contactos</div>
-        <div class="int-soon">Próximamente</div>
-        <div class="int-desc">Cruza la información de las conversaciones con los datos de los clientes en el CRM. Permite identificar con quién se está hablando y enriquecer las fichas de contacto con lo que ocurre en WhatsApp.</div>
+        <div class="int-title" data-i18n="coex.card2_title">CRM · Enriquecimiento de contactos</div>
+        <div class="int-soon" data-i18n="coex.card2_soon">Próximamente</div>
+        <div class="int-desc" data-i18n="coex.card2_desc">Cruza la información de las conversaciones con los datos de los clientes en el CRM. Permite identificar con quién se está hablando y enriquecer las fichas de contacto con lo que ocurre en WhatsApp.</div>
       </div>
 
       <div class="int-card">
-        <div class="int-title">Calendarios</div>
-        <div class="int-desc">Al activarse en una conversación de WhatsApp, sincroniza los calendarios del usuario y muestra los slots disponibles a la persona que solicita la reunión para que pueda proponer día y hora.</div>
+        <div class="int-title" data-i18n="coex.card3_title">Calendarios</div>
+        <div class="int-desc" data-i18n="coex.card3_desc">Al activarse en una conversación de WhatsApp, sincroniza los calendarios del usuario y muestra los slots disponibles a la persona que solicita la reunión para que pueda proponer día y hora.</div>
       </div>
 
       <div class="int-card">
-        <div class="int-title">Her</div>
-        <div class="int-desc">HER se integra en Coexistencia mediante tools que ponen la información de cada módulo a disposición del agente de consulta. El manager puede preguntar por voz sobre resúmenes, contactos o actividad comercial.</div>
+        <div class="int-title" data-i18n="coex.card4_title">Her</div>
+        <div class="int-desc" data-i18n="coex.card4_desc">HER se integra en Coexistencia mediante tools que ponen la información de cada módulo a disposición del agente de consulta. El manager puede preguntar por voz sobre resúmenes, contactos o actividad comercial.</div>
       </div>
 
     </div>

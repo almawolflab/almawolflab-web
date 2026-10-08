@@ -10,54 +10,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/dercas.css">
+<script src="../assets/js/i18n.js" defer></script>
 </head>
 <body>
 <div id="content">
 
   <!-- HEADER -->
   <header class="proj-header">
-    <a href="../index.html" class="back-link">AlmaWolf Lab</a>
-    <div class="proj-header-title">DERS / DERCAS Automation</div>
-    <div class="proj-header-logo">
+    <a href="../index.html" class="back-link" data-i18n="dercas.header_back">AlmaWolf Lab</a>
+    <div class="proj-header-title" data-i18n="dercas.header_title">DERS / DERCAS Automation</div>
+    <div class="proj-header-logo" style="display:flex;align-items:center;gap:20px">
+      <div class="lang-switch">
+        <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+        <span class="sep">|</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
       <img src="../Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="32" style="display:block">
     </div>
   </header>
 
   <!-- ── S1 QUÉ ES ── -->
   <section id="s-que-es" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>El proyecto</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="dercas.que_es_lbl">El proyecto</span></div>
     <div class="two-col">
       <div>
-        <h2 class="col-h">El consultor graba y dicta. El sistema documenta y configura.</h2>
+        <h2 class="col-h" data-i18n="dercas.que_es_h">El consultor graba y dicta. El sistema documenta y configura.</h2>
       </div>
       <div class="col-body">
-        <p>Cada proyecto de consultoría genera dos documentos críticos: el DERS (Documento de Especificación de Requerimientos del Sistema) y el DERCAS (Documentación de Especificaciones, Requisitos y Criterios de Aceptación de Software). Hasta ahora, ambos se redactaban manualmente después de cada reunión con cliente.</p>
-        <p>DERS/DERCAS Automation convierte las grabaciones en borradores estructurados listos para revisión y prepara la configuración para el CRM. El consultor solo sube los archivos y revisa el resultado.</p>
+        <p data-i18n="dercas.que_es_p1">Cada proyecto de consultoría genera dos documentos críticos: el DERS (Documento de Especificación de Requerimientos del Sistema) y el DERCAS (Documentación de Especificaciones, Requisitos y Criterios de Aceptación de Software). Hasta ahora, ambos se redactaban manualmente después de cada reunión con cliente.</p>
+        <p data-i18n="dercas.que_es_p2">DERS/DERCAS Automation convierte las grabaciones en borradores estructurados listos para revisión y prepara la configuración para el CRM. El consultor solo sube los archivos y revisa el resultado.</p>
       </div>
     </div>
   </section>
 
   <!-- ── S2 ARQUITECTURA ── -->
   <section id="s-arquitectura" class="bg-w">
-    <div class="sec-lbl"><span class="d"></span>Arquitectura</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" class="reveal">
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="dercas.arq_lbl">Arquitectura</span></div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:600px;line-height:1.2" data-i18n="dercas.arq_h" data-i18n-html class="reveal">
       Tres módulos encadenados.<br>Cada uno autónomo.
     </div>
     <div class="mod-grid reveal">
 
       <div class="mod-card">
-        <div class="mod-title">DERS</div>
-        <div class="mod-desc">Detecta nuevas grabaciones en WorkDrive, transcribe en paralelo, extrae requerimientos con trazabilidad reunión + minuto, e inyecta boilerplate GDPR y formación. Genera PDF en 3 pasadas.</div>
+        <div class="mod-title" data-i18n="dercas.mod1_title">DERS</div>
+        <div class="mod-desc" data-i18n="dercas.mod1_desc">Detecta nuevas grabaciones en WorkDrive, transcribe en paralelo, extrae requerimientos con trazabilidad reunión + minuto, e inyecta boilerplate GDPR y formación. Genera PDF en 3 pasadas.</div>
       </div>
 
       <div class="mod-card">
-        <div class="mod-title">DERCAS</div>
-        <div class="mod-desc">El consultor dicta la solución en audio. El sistema empareja con el DERS generado, aplica RAG sobre DERCAS anteriores y el catálogo Zoho, y genera el documento estructurado por requerimiento con criterios de viabilidad.</div>
+        <div class="mod-title" data-i18n="dercas.mod2_title">DERCAS</div>
+        <div class="mod-desc" data-i18n="dercas.mod2_desc">El consultor dicta la solución en audio. El sistema empareja con el DERS generado, aplica RAG sobre DERCAS anteriores y el catálogo Zoho, y genera el documento estructurado por requerimiento con criterios de viabilidad.</div>
       </div>
 
       <div class="mod-card">
-        <div class="mod-title">Parametrización CRM</div>
-        <div class="mod-desc">Envío directo de la configuración del DERCAS al CRM vía Zoho REST. Requiere aprobación humana antes de cada escritura. Reemplaza la integración Zoho MCP descartada por limitaciones técnicas.</div>
+        <div class="mod-title" data-i18n="dercas.mod3_title">Parametrización CRM</div>
+        <div class="mod-desc" data-i18n="dercas.mod3_desc">Envío directo de la configuración del DERCAS al CRM vía Zoho REST. Requiere aprobación humana antes de cada escritura. Reemplaza la integración Zoho MCP descartada por limitaciones técnicas.</div>
       </div>
 
     </div>
@@ -65,48 +71,48 @@
 
   <!-- ── DIAGRAMA PROCESO ── -->
   <section id="s-diagrama">
-    <img src="../assets/dercas-proceso.png" alt="De la reunión con el cliente a la implementación en Zoho CRM" class="diagrama-img reveal">
+    <img src="../assets/dercas-proceso.png" data-i18n-alt="dercas.diagrama_alt" alt="De la reunión con el cliente a la implementación en Zoho CRM" class="diagrama-img reveal">
   </section>
 
   <!-- ── GUÍA CONSULTOR ── -->
   <section id="s-guia" class="bg-l">
-    <img src="../assets/dercas-guia.png" alt="Guía rápida para consultores" class="diagrama-img reveal">
+    <img src="../assets/dercas-guia.png" data-i18n-alt="dercas.guia_alt" alt="Guía rápida para consultores" class="diagrama-img reveal">
   </section>
 
   <!-- ── S3 SIGUIENTES FASES ── -->
   <section id="s-siguientes" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Siguientes fases</div>
-    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:560px;line-height:1.2" class="reveal">
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="dercas.sig_lbl">Siguientes fases</span></div>
+    <div style="font-size:clamp(24px,3vw,42px);font-weight:300;color:var(--navy);max-width:560px;line-height:1.2" data-i18n="dercas.sig_h" class="reveal">
       Cuatro frentes simultáneos.
     </div>
     <div class="ng reveal">
 
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">Operaciones</div>
-        <div class="nc-t">Escalado operativo</div>
-        <div class="nc-desc">Alerta configurable por consultor en WorkDrive. Notificaciones a Zoho Cliq para visibilidad del equipo. Índice de DERS en Data Store para consulta histórica entre proyectos.</div>
+        <div class="nc-n" data-i18n="dercas.sig_nc1_n">Operaciones</div>
+        <div class="nc-t" data-i18n="dercas.sig_nc1_t">Escalado operativo</div>
+        <div class="nc-desc" data-i18n="dercas.sig_nc1_d">Alerta configurable por consultor en WorkDrive. Notificaciones a Zoho Cliq para visibilidad del equipo. Índice de DERS en Data Store para consulta histórica entre proyectos.</div>
       </div>
 
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">Infraestructura</div>
-        <div class="nc-t">Catalyst Production</div>
-        <div class="nc-desc">Despliegue del sistema en Catalyst Production con cuenta de equipo compartida. Permite escalar sin límite de proyectos y centralizar el acceso para todos los consultores.</div>
+        <div class="nc-n" data-i18n="dercas.sig_nc2_n">Infraestructura</div>
+        <div class="nc-t" data-i18n="dercas.sig_nc2_t">Catalyst Production</div>
+        <div class="nc-desc" data-i18n="dercas.sig_nc2_d">Despliegue del sistema en Catalyst Production con cuenta de equipo compartida. Permite escalar sin límite de proyectos y centralizar el acceso para todos los consultores.</div>
       </div>
 
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">Experiencia consultor</div>
-        <div class="nc-t">Revisor por voz</div>
-        <div class="nc-desc">DERS entregado en Word editable para marcado de correcciones. Correcciones dictadas por voz procesadas de forma incremental. Ciclo de revisión en sandbox antes de entrega al cliente.</div>
+        <div class="nc-n" data-i18n="dercas.sig_nc3_n">Experiencia consultor</div>
+        <div class="nc-t" data-i18n="dercas.sig_nc3_t">Revisor por voz</div>
+        <div class="nc-desc" data-i18n="dercas.sig_nc3_d">DERS entregado en Word editable para marcado de correcciones. Correcciones dictadas por voz procesadas de forma incremental. Ciclo de revisión en sandbox antes de entrega al cliente.</div>
       </div>
 
       <div class="nc">
         <div class="nc-d"></div>
-        <div class="nc-n">CRM</div>
-        <div class="nc-t">Parametrización Zoho</div>
-        <div class="nc-desc">Implementación del DERCAS directamente en Zoho CRM vía REST. Sandbox para validación antes de producción. Aprobación humana obligatoria en cada escritura al CRM.</div>
+        <div class="nc-n" data-i18n="dercas.sig_nc4_n">CRM</div>
+        <div class="nc-t" data-i18n="dercas.sig_nc4_t">Parametrización Zoho</div>
+        <div class="nc-desc" data-i18n="dercas.sig_nc4_d">Implementación del DERCAS directamente en Zoho CRM vía REST. Sandbox para validación antes de producción. Aprobación humana obligatoria en cada escritura al CRM.</div>
       </div>
 
     </div>

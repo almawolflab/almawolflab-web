@@ -13,7 +13,7 @@
       sessionStorage.setItem(SK,'1');
       unlock();
     } else {
-      document.getElementById('pwd-err').textContent = 'Contraseña incorrecta.';
+      document.getElementById('pwd-err').textContent = (window.__i18n && window.__i18n.t) ? window.__i18n.t('landing.gate_err') : 'Contraseña incorrecta.';
       document.getElementById('pwd').value = '';
       document.getElementById('pwd').focus();
     }

@@ -172,3 +172,7 @@
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:50vh;text-align:center;
 }
+
+/* ── TRANSCRIPT NOTE (shown in EN only) ── */
+.transcript-note{display:none;font-size:11px;color:var(--gray);font-style:italic;padding:0 0 10px}
+html[lang="en"] .transcript-note{display:block}

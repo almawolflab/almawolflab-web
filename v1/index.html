@@ -10,19 +10,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/landing.css">
+<script src="assets/js/i18n.js" defer></script>
 </head>
 <body>
 
 <!-- ── GATE ── -->
 <div id="gate">
+  <div class="lang-switch gate-lang">
+    <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+    <span class="sep">|</span>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
   <div class="gate-box">
     <div class="gate-logo">
       <img src="Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="34" style="display:block;filter:brightness(0) invert(1)">
     </div>
     <div class="gate-title">AlmaWolf Lab</div>
-    <div class="gate-sub">Área restringida.<br>Introduce la contraseña para acceder.</div>
-    <input class="gate-input" id="pwd" type="password" placeholder="Contraseña" autocomplete="current-password">
-    <button class="gate-btn" id="btn-enter">Acceder</button>
+    <div class="gate-sub" data-i18n="landing.gate_sub" data-i18n-html>Área restringida.<br>Introduce la contraseña para acceder.</div>
+    <input class="gate-input" id="pwd" type="password" data-i18n="landing.gate_placeholder" placeholder="Contraseña" autocomplete="current-password">
+    <button class="gate-btn" id="btn-enter" data-i18n="landing.gate_btn">Acceder</button>
     <div class="gate-err" id="pwd-err"></div>
   </div>
 </div>
@@ -35,46 +41,51 @@
       <img src="Logo-AlmawolfLab.svg" alt="AlmaWolf Lab" height="38" style="display:block">
     </a>
     <ul class="nav-links">
-      <li><a href="#que-es">Qué es</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#que-es" data-i18n="landing.nav_que_es">Qué es</a></li>
+      <li><a href="#proyectos" data-i18n="landing.nav_proyectos">Proyectos</a></li>
     </ul>
+    <div class="lang-switch">
+      <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+      <span class="sep">|</span>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </nav>
 
   <!-- ── QUÉ ES ── -->
   <section id="que-es" class="bg-l">
-    <div class="sec-lbl"><span class="d"></span>Qué es AlmaWolf Lab</div>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="landing.que_es_lbl">Qué es AlmaWolf Lab</span></div>
     <div class="two-col reveal">
       <div>
-        <h2 class="col-h">El departamento de innovación del grupo AlmaWolf.</h2>
+        <h2 class="col-h" data-i18n="landing.que_es_h">El departamento de innovación del grupo AlmaWolf.</h2>
       </div>
       <div class="col-body">
-        <p>AlmaWolf Lab es el departamento de innovación del grupo AlmaWolf. Desde aquí exploramos nuevas formas de trabajar, automatizamos procesos y desarrollamos productos internos que combinan tecnología, inteligencia artificial y experiencia operacional.</p>
-        <p>Nuestro enfoque es práctico: cada iniciativa nace de una necesidad real, se valida con usuarios y evoluciona hasta convertirse en una solución medible, escalable y útil para el negocio.</p>
+        <p data-i18n="landing.que_es_p1">AlmaWolf Lab es el departamento de innovación del grupo AlmaWolf. Desde aquí exploramos nuevas formas de trabajar, automatizamos procesos y desarrollamos productos internos que combinan tecnología, inteligencia artificial y experiencia operacional.</p>
+        <p data-i18n="landing.que_es_p2">Nuestro enfoque es práctico: cada iniciativa nace de una necesidad real, se valida con usuarios y evoluciona hasta convertirse en una solución medible, escalable y útil para el negocio.</p>
       </div>
     </div>
   </section>
 
   <!-- ── PROYECTOS ── -->
   <section id="proyectos" class="bg-w">
-    <div class="sec-lbl"><span class="d"></span>Proyectos</div>
-    <h2 class="section-title">Soluciones en marcha.</h2>
+    <div class="sec-lbl"><span class="d"></span><span data-i18n="landing.proyectos_lbl">Proyectos</span></div>
+    <h2 class="section-title" data-i18n="landing.proyectos_title">Soluciones en marcha.</h2>
     <div class="proj-grid reveal">
 
       <!-- HER -->
       <div class="proj-card">
         <div class="proj-num">01</div>
         <div class="proj-name">HER</div>
-        <p class="proj-desc">Sistema de inteligencia operacional conversacional para el grupo AlmaWolf. Recoge información de la actividad de los equipos, la estructura y la convierte en conocimiento consultable mediante lenguaje natural.</p>
+        <p class="proj-desc" data-i18n="landing.her_desc">Sistema de inteligencia operacional conversacional para el grupo AlmaWolf. Recoge información de la actividad de los equipos, la estructura y la convierte en conocimiento consultable mediante lenguaje natural.</p>
         <div class="proj-impact">
-          <div class="proj-impact-lbl">Impacto generado</div>
+          <div class="proj-impact-lbl" data-i18n="landing.her_impact_lbl">Impacto generado</div>
           <ul>
-            <li>Mayor visibilidad semanal sobre avances y bloqueos del equipo.</li>
-            <li>Agentes que asisten y comparten conocimiento con cada empleado.</li>
-            <li>Centralización del conocimiento generado en la actividad diaria.</li>
+            <li data-i18n="landing.her_impact_1">Mayor visibilidad semanal sobre avances y bloqueos del equipo.</li>
+            <li data-i18n="landing.her_impact_2">Agentes que asisten y comparten conocimiento con cada empleado.</li>
+            <li data-i18n="landing.her_impact_3">Centralización del conocimiento generado en la actividad diaria.</li>
           </ul>
         </div>
         <div class="proj-cta">
-          <a href="her/index.html" class="proj-btn">Ver proyecto HER →</a>
+          <a href="her/index.html" class="proj-btn" data-i18n="landing.her_cta">Ver proyecto HER →</a>
         </div>
       </div>
 
@@ -82,17 +93,17 @@
       <div class="proj-card">
         <div class="proj-num">02</div>
         <div class="proj-name">Coexistencia</div>
-        <p class="proj-desc">Hub de integración que conecta los datos comerciales de Woztell con los sistemas de AlmaWolf: inteligencia operacional, CRM, calendarios y lo que venga después.</p>
+        <p class="proj-desc" data-i18n="landing.coex_desc">Hub de integración que conecta los datos comerciales de Woztell con los sistemas de AlmaWolf: inteligencia operacional, CRM, calendarios y lo que venga después.</p>
         <div class="proj-impact">
-          <div class="proj-impact-lbl">Impacto generado</div>
+          <div class="proj-impact-lbl" data-i18n="landing.coex_impact_lbl">Impacto generado</div>
           <ul>
-            <li>Visibilidad de conversaciones y gestiones comerciales de WhatsApp.</li>
-            <li>Automatización del match entre conversaciones y calendarios.</li>
-            <li>Identificación automática de conversación por cliente.</li>
+            <li data-i18n="landing.coex_impact_1">Visibilidad de conversaciones y gestiones comerciales de WhatsApp.</li>
+            <li data-i18n="landing.coex_impact_2">Automatización del match entre conversaciones y calendarios.</li>
+            <li data-i18n="landing.coex_impact_3">Identificación automática de conversación por cliente.</li>
           </ul>
         </div>
         <div class="proj-cta">
-          <a href="coexistencia/index.html" class="proj-btn">Ver proyecto Coexistencia →</a>
+          <a href="coexistencia/index.html" class="proj-btn" data-i18n="landing.coex_cta">Ver proyecto Coexistencia →</a>
         </div>
       </div>
 
@@ -100,17 +111,17 @@
       <div class="proj-card">
         <div class="proj-num">03</div>
         <div class="proj-name">DERS / DERCAS<br>Automation</div>
-        <p class="proj-desc">Automatiza la cadena de consultoría desde las reuniones con cliente hasta la generación de documentación funcional y técnica lista para revisión humana.</p>
+        <p class="proj-desc" data-i18n="landing.dercas_desc">Automatiza la cadena de consultoría desde las reuniones con cliente hasta la generación de documentación funcional y técnica lista para revisión humana.</p>
         <div class="proj-impact">
-          <div class="proj-impact-lbl">Impacto esperado</div>
+          <div class="proj-impact-lbl" data-i18n="landing.dercas_impact_lbl">Impacto esperado</div>
           <ul>
-            <li>Reducción de horas manuales en documentación funcional y técnica.</li>
-            <li>Implementación directa en el CRM vía API.</li>
-            <li>Consistencia documental mediante plantillas y criterios estructurados.</li>
+            <li data-i18n="landing.dercas_impact_1">Reducción de horas manuales en documentación funcional y técnica.</li>
+            <li data-i18n="landing.dercas_impact_2">Implementación directa en el CRM vía API.</li>
+            <li data-i18n="landing.dercas_impact_3">Consistencia documental mediante plantillas y criterios estructurados.</li>
           </ul>
         </div>
         <div class="proj-cta">
-          <a href="dercas/index.html" class="proj-btn">Ver proyecto →</a>
+          <a href="dercas/index.html" class="proj-btn" data-i18n="landing.dercas_cta">Ver proyecto →</a>
         </div>
       </div>
 

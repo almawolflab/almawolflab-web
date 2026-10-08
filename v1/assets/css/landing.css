@@ -146,3 +146,10 @@
   font-size:14px;color:var(--gray);font-weight:500;cursor:default;
   border:1px solid var(--border);
 }
+
+/* ── GATE LANG SWITCH ── */
+.gate-lang{position:absolute;top:24px;right:32px}
+.gate-lang button{color:rgba(255,255,255,.45)}
+.gate-lang button:hover{color:#fff}
+.gate-lang button.active{color:#fff;font-weight:600}
+.gate-lang .sep{color:rgba(255,255,255,.2)}
